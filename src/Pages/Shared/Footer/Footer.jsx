@@ -1,25 +1,27 @@
 import React from "react";
+import logoimg from "..//..//..//assets/book-logo-removebg-preview.png"
 import { CgMail } from "react-icons/cg";
 import { FaFacebook, FaLinkedin, FaLocationDot, FaPhone, FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
     <footer className="container mx-auto dark:bg-gray-800 bg-green-100  ">
       <div className="footer sm:footer-horizontal text-neutral-content justify-between p-10">
         <nav>
-          <div className="flex justify-center items-center">
-            {/* <figure>
+          <div className="flex justify-center items-center gap-3">
+            <figure>
               <Link to="/">
                 <img
-                  className="h-12 w-12 md:h-18 md:w-24"
+                  className="h-12 w-14 md:h-14 md:w-20"
                   src={logoimg}
                   alt=""
                 />
               </Link>
-            </figure> */}
+            </figure>
             <a className=" text-gray-700 dark:text-gray-100 btn-ghost text-xl font-bold">
               {" "}
-              Home Hero
+              Book Courier
             </a>
           </div>
           <p className=" text-gray-700 dark:text-gray-100">
@@ -29,7 +31,7 @@ const Footer = () => {
         </nav>
         <nav>
           <h6 className="font-bold  text-gray-700 dark:text-gray-100 py-2">
-            Service
+           Our Service
           </h6>
           <a className="link  text-gray-700 dark:text-gray-100 link-hover">
             Door & Lock Repair
@@ -123,7 +125,7 @@ const Footer = () => {
       </div>
       <hr className="p-0.5 w-10/12 mx-auto bg-gray-600" />
       <p className="text-center dark:text-gray-100 text-gray-700 py-4 px-3">
-        Copyright © 2025 home service - All right reserved
+        Copyright © 2025 <span className="text-pink-500 font-medium"> BookCourier</span> - All right reserved
       </p>
     </footer>
   );
