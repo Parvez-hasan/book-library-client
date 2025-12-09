@@ -9,22 +9,22 @@ const Banner = () => {
   const slides = [
     {
       id: 1,
-      title: "Find Trusted Electricians Near You",
+      title: "Automatic Data for Book, Game & Video",
       description:
-        "Book professional electricians for your home and office repairs easily.",
-      img: "https://i.ibb.co/5Q9G41d/man-electrical-technician-working-switchboard-with-fuses.jpg",
+        "Our library management service caters to libraries, schools, and home catalogs",
+      img: "https://i.ibb.co.com/b5S8TDNM/vladimir-mokry-G-4w-X5t-ZNu-E-unsplash.jpg",
     },
     {
       id: 2,
-      title: "Need a Reliable Plumber?",
-      description: "Fix your pipes and leaks fast with trusted local plumbers.",
-      img: "https://i.ibb.co/zVtFb7Fc/Plumbing-Maintenance-Tips-1.jpg",
+      title: "Create up to 100 mixed media collections?",
+      description: "Our library management service caters to libraries, schools, organizations, and home catalogs",
+      img: "https://i.ibb.co.com/Nn2QXF92/pexels-pixabay-256455.jpg",
     },
     {
       id: 3,
-      title: "Home Cleaning Services You Can Trust",
-      description: "Hire professional cleaners for your home today.",
-      img: "https://i.ibb.co/QjDCR1cx/shutterstock-395889715.jpg",
+      title: "Libib Pro Users Can Access Even More Power",
+      description: "Libib Pro brings an abundance of additional enhancements to the table.",
+      img: "https://i.ibb.co.com/WvR8RNJk/teenagers-with-gadgets-library.jpg",
     },
   ];
 
@@ -64,7 +64,7 @@ const Banner = () => {
               to="/service"
               className="bg-green-600 px-6 py-3 font-semibold rounded-xl text-white hover:bg-green-700 transition"
             >
-              Explore Services
+              Show All Books
             </Link>
           </div>
         </motion.div>

@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="container mx-auto dark:bg-gray-800 bg-green-100  ">
+    <footer className="container mx-auto dark:bg-gray-800 bg-blue-100  ">
       <div className="footer sm:footer-horizontal text-neutral-content justify-between p-10">
         <nav>
           <div className="flex justify-center items-center gap-3">
@@ -25,8 +25,7 @@ const Footer = () => {
             </a>
           </div>
           <p className=" text-gray-700 dark:text-gray-100">
-            We provide the best home repair <br />
-            services with reliable care.
+           Library to home delivery system.
           </p>
         </nav>
         <nav>

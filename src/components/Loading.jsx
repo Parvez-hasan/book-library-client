@@ -1,0 +1,14 @@
+import React from 'react';
+
+const Loading = () => {
+    return (
+    
+<div class="flex justify-center items-center py-6 flex-row gap-2">
+  <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
+  <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.3s]"></div>
+  <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
+</div>
+    );
+};
+
+export default Loading;

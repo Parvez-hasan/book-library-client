@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 const Register = () => {
+  
   const { createUser, setUser, updateUser, googleLogin } =
     useContext(AuthContext);
 
@@ -70,7 +71,7 @@ const Register = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then(() => {
-        // toast.success("🎉 Logged in with Google!");
+       
         Swal.fire({
           title: "🎉 Logged in with Google Successfully!",
           icon: "success",

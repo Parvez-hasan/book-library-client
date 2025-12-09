@@ -1,264 +1,157 @@
-import React, { use, useEffect, useState } from "react";
-import { AuthContext } from "../../../Contexts/AuthContext";
+import React from "react";
 import { Link, NavLink } from "react-router";
-import { Menu, Moon, Sun, X } from "lucide";
 import logoImg from "..//..//..//assets/book-logo-removebg-preview.png";
-
-const activeClass = "text-white bg-slate-700 px-3 py-1 rounded-md";
-const normalClass =
-  "text-slate-800 hover:text-white hover:bg-slate-500 px-3 py-1 rounded-md";
+import useAuth from "../../../Hooks/useAuth";
 
 const Navbar = () => {
-  const { user, logOut } = use(AuthContext);
+  const {user} = useAuth();
+  const links = (
+    <>
+      <li>
+        <NavLink to="/" className="hover:text-pink-500 hover:font-bold">
+          Home
+        </NavLink>
+      </li>
 
-  const [open, setOpen] = useState(false);
-  const [theme, setTheme] = useState(() => {
-    // initial from localStorage or system pref
-    if (typeof window !== "undefined") {
-      const t = localStorage.getItem("theme");
-      if (t) return t;
-      return window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-    }
-    return "light";
-  });
+      <li>
+        <NavLink to="/books" className="hover:text-pink-500 hover:font-bold">
+          Books
+        </NavLink>
+      </li>
 
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [theme]);
+       <li>
+        <NavLink to="/coverage" className="hover:text-pink-500 hover:font-bold">
+          Coverage Area
+        </NavLink>
+      </li>
 
-  const toggleTheme = () =>
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-
-  const handleLogout = async () => {
-    try {
-      await logOut();
-      // optionally show toast
-    } catch (err) {
-      console.error(err);
-    }
-  };
+      <li>
+        <NavLink
+          to="/dashboard"
+          className="hover:text-pink-500 hover:font-bold"
+        >
+          Dashboard
+        </NavLink>
+      </li>
+    </>
+  );
 
   return (
-    <nav className="bg-white dark:bg-slate-900 shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-between h-16 items-center">
-          {/* Left: Logo */}
-          <div className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-3">
-              <figure>
-                <Link to="/">
-                  <img
-                    className="btn-ghost h-14 w-20 md:h-15 md:w-26 text-xl"
-                    src={logoImg}
-                    alt=""
-                  />
-                </Link>
-              </figure>
-              <div className="hidden sm:block">
-                <h1 className="text-lg font-semibold text-blue-600 dark:text-white">
-                  BookCourier
-                </h1>
-                <p className="text-xs text-pink-600 dark:text-slate-300">
-                  Library to Home
-                </p>
-              </div>
-            </Link>
+    <div className="container mx-auto navbar bg-blue-100 shadow-sm px-2 sticky top-0 z-50">
+      {/* Left Section */}
+      <div className="navbar-start">
+        {/* Mobile Menu */}
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
           </div>
 
-          {/* Center / Links (desktop) */}
-          <div className="hidden md:flex items-center gap-2">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive ? activeClass : normalClass
-              }
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/books"
-              className={({ isActive }) =>
-                isActive ? activeClass : normalClass
-              }
-            >
-              Books
-            </NavLink>
-            <NavLink
-              to="/dashboard"
-              className={({ isActive }) =>
-                isActive ? activeClass : normalClass
-              }
-            >
-              Dashboard
-            </NavLink>
-            {!user && (
-              <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  isActive ? activeClass : normalClass
-                }
-              >
-                Login
-              </NavLink>
-            )}
-            {!user && (
-              <NavLink
-                to="/register"
-                className={({ isActive }) =>
-                  isActive ? activeClass : normalClass
-                }
-              >
-                Register
-              </NavLink>
-            )}
-          </div>
-
-          {/* Right: theme + profile */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700"
-            >
-              {/* {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />} */}
-            </button>
-
-            {user ? (
-              <div className="flex items-center gap-3">
-                {/* profile image */}
-                <div className="flex items-center gap-2">
-                  <img
-                    src={
-                      user.photoURL ||
-                      `https://ui-avatars.com/api/?name=${encodeURIComponent(
-                        user.displayName || user.email
-                      )}`
-                    }
-                    alt="profile"
-                    className="w-9 h-9 rounded-full object-cover ring-2 ring-offset-1 ring-indigo-500"
-                  />
-                </div>
-
-                <button
-                  onClick={handleLogout}
-                  className="px-3 py-1 rounded-md border border-slate-200 dark:border-slate-700 text-sm"
-                >
-                  Logout
-                </button>
-              </div>
-            ) : null}
-
-            {/* Mobile hamburger */}
-            <button
-              className="md:hidden p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700"
-              aria-label="Open menu"
-              onClick={() => setOpen((v) => !v)}
-            >
-              {/* {open ? <X size={20} /> : <Menu size={20} />} */}
-            </button>
-          </div>
+          {/* Mobile Dropdown */}
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
+          >
+            {links}
+          </ul>
         </div>
+
+        {/* Logo + Title */}
+        <Link to="/">
+          <div className="flex justify-center items-center gap-3">
+            <img
+              className="btn-ghost h-14 w-20 md:h-15 md:w-26"
+              src={logoImg}
+              alt="logo"
+            />
+
+            <div className="hidden sm:block">
+              <h1 className="text-2xl font-bold text-blue-600">
+                BookCourier
+              </h1>
+              <p className="text-sm font-semibold text-pink-600">Library to Home</p>
+            </div>
+          </div>
+        </Link>
       </div>
 
-      {/* Mobile menu */}
-      {open && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800"
-        >
-          <div className="px-4 py-3 flex flex-col gap-2">
-            <NavLink
-              to="/"
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                isActive ? "block " + activeClass : "block " + normalClass
-              }
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/books"
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                isActive ? "block " + activeClass : "block " + normalClass
-              }
-            >
-              Books
-            </NavLink>
-            <NavLink
-              to="/dashboard"
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                isActive ? "block " + activeClass : "block " + normalClass
-              }
-            >
-              Dashboard
-            </NavLink>
-            {!user && (
-              <NavLink
-                to="/login"
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  isActive ? "block " + activeClass : "block " + normalClass
-                }
-              >
-                Login
-              </NavLink>
-            )}
-            {!user && (
-              <NavLink
-                to="/register"
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  isActive ? "block " + activeClass : "block " + normalClass
-                }
-              >
-                Register
-              </NavLink>
-            )}
+      {/* Desktop Menu */}
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">{links}</ul>
+      </div>
 
-            {user && (
-              <>
-                <div className="mt-2 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={
-                        user.photoURL ||
-                        `https://ui-avatars.com/api/?name=${encodeURIComponent(
-                          user.displayName || user.email
-                        )}`
-                      }
-                      alt="profile"
-                      className="w-10 h-10 rounded-full"
-                    />
-                    <div>
-                      <div className="text-sm font-medium text-slate-900 dark:text-white">
-                        {user.displayName || user.email}
-                      </div>
-                      <div className="text-xs text-slate-500 dark:text-slate-300">
-                        {user.email}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
-          </div>
-        </motion.div>
-      )}
-    </nav>
+      {/* Right Section */}
+      <div className="navbar-end">
+
+        {/* Register Button */}
+        
+        {user ?  (
+          <Link to="/profile">
+            {" "}
+            <img
+              className="w-12 h-12 rounded-full"
+              src={`${user ? user.photoURL : ""}`}
+              alt=""
+            />{" "}
+          </Link>
+        ) : (
+          <>
+               <Link to="/register">
+          <button
+            className="overflow-hidden mr-2 px-4 py-2 bg-black text-white  
+            rounded-md font-semibold cursor-pointer relative z-10 group"
+          >
+            Register
+            <span
+              className="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12
+              transform scale-x-0 group-hover:scale-x-100 transition-transform 
+              duration-1000 origin-left"
+            ></span>
+            <span
+              className="absolute w-36 h-32 -top-8 -left-2 bg-purple-400 rotate-12 
+              transform scale-x-0 group-hover:scale-x-100 transition-transform 
+              duration-700 origin-left"
+            ></span>
+            <span
+              className="absolute w-36 h-32 -top-8 -left-2 bg-blue-600 rotate-12 
+              transform scale-x-0 group-hover:scale-x-100 transition-transform 
+              duration-500 origin-left"
+            ></span>
+            <span
+              className="group-hover:opacity-100 duration-1000 absolute left-4 
+              opacity-0 z-10"
+            >
+              Register
+            </span>
+          </button>
+        </Link>
+
+        {/* Login Button */}
+        <Link
+          to="/login"
+          className="btn bg-green-500 text-white rounded-xl px-4 hover:bg-green-600"
+        >
+          Login
+        </Link>
+          </>
+        )
+        
+        }
+      
+      </div>
+    </div>
   );
 };
 
