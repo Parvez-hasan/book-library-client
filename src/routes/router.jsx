@@ -5,6 +5,10 @@ import AuthLayout from "../Layouts/AuthLayout";
 import Login from "../Pages/Auth/Login/Login";
 import Register from "../Pages/Auth/Register/Register";
 import Coverage from "../Pages/Coverage/Coverage";
+import PrivateRouter from "./PrivateRouter";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import Profile from "../Pages/Profile/Profile";
+
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +22,12 @@ export const router = createBrowserRouter([
       {
         path: 'books',
 
+      },
+       {
+       path: 'profile',
+       element: <PrivateRouter>
+        <Profile></Profile>
+       </PrivateRouter>
       },
       {
         path: 'coverage',
@@ -39,5 +49,18 @@ export const router = createBrowserRouter([
         Component: Register
        }
     ]
+  },
+
+  {
+   path: 'dashboard',
+   element: (
+     <PrivateRouter>
+        <DashboardLayout></DashboardLayout>
+     </PrivateRouter>
+   ),
+   children: [
+    
+   ]
+
   }
 ]);
