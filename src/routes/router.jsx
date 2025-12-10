@@ -8,6 +8,8 @@ import Coverage from "../Pages/Coverage/Coverage";
 import PrivateRouter from "./PrivateRouter";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import Profile from "../Pages/Profile/Profile";
+import AllBooks from "../Pages/Books/AllBooks";
+import AddBooks from "../Pages/AddBooks/AddBooks";
 
 
 export const router = createBrowserRouter([
@@ -59,7 +61,10 @@ export const router = createBrowserRouter([
      </PrivateRouter>
    ),
    children: [
-    
+    {
+      path: 'addBooks',
+      Component: AddBooks
+    }
    ]
 
   }

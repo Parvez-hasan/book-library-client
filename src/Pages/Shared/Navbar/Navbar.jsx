@@ -141,7 +141,7 @@ const Navbar = () => {
         {/* Login Button */}
         <Link
           to="/login"
-          className="btn bg-green-500 text-white rounded-xl px-4 hover:bg-green-600"
+          className="btn bg-pink-500 text-white rounded-xl px-4 hover:bg-pink-600"
         >
           Login
         </Link>

@@ -26,7 +26,7 @@ const Coverage = () => {
       // console.log(district, coord)
 
       //user go to location
-      mapRef.current.flyTo(coord, 13);
+      mapRef.current.flyTo(coord, 12);
     }
   };
 
@@ -64,13 +64,14 @@ const Coverage = () => {
           </label>
         </form>
       </div>
-
-      <div className="border-2 p-1 w-full h-[800px]">
+        
+        {/* show map section */}
+      <div className="border-2 p-1 w-full h-[700px]">
         <MapContainer
           center={position}
           zoom={8}
           scrollWheelZoom={false}
-          className="h-[800px]"
+          className="h-[700px]"
           ref={mapRef}
         >
           <TileLayer

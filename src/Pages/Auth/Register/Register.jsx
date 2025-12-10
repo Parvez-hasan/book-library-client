@@ -24,7 +24,7 @@ const Register = () => {
     const password = e.target.password.value;
     console.log(name, photo, email, password);
 
-    // name  valeta
+    // name  valete
     if (name.length < 5) {
       setNameError("You must provide at least 5 characters");
       return;
@@ -148,6 +148,7 @@ const Register = () => {
             </button>
           </fieldset>
         </form>
+        
         {/* Google */}
         <button
           onClick={handleGoogleLogin}
