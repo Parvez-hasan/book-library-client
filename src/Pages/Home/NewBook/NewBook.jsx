@@ -11,7 +11,10 @@ const NewBook = () => {
       .then(res => res.json())
       .then(data => setBooks(data))
       
-      .catch(err => console.error(err));
+      .catch(err => {
+        console.log(err.message);
+        
+      });
   }, []);
 
   
