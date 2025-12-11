@@ -3,6 +3,8 @@ import Banner from '../Banner/Banner';
 import NewBook from '../NewBook/NewBook';
 import Coverage from '../../Coverage/Coverage';
 import WhyChoose from '../WhyChoose/WhyChoose';
+import Features from '../Features/Features';
+import Testimonial from '../Testimonial/Testimonial';
 
 const Home = () => {
     return (
@@ -15,6 +17,11 @@ const Home = () => {
            </div> */}
 
            <WhyChoose></WhyChoose>
+
+           {/* 1 animated section */}
+           <Features></Features>
+
+           <Testimonial></Testimonial>
 
         </div>
     );
