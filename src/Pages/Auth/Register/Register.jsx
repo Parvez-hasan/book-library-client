@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import libImg from "..//..//..//assets/library-9784151_1280.png"
 
 const Register = () => {
   

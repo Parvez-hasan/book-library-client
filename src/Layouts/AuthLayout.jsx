@@ -1,6 +1,7 @@
 import React from 'react';
 import logoimg from "..//assets/book-logo-removebg-preview.png"
 import { Link, Outlet } from 'react-router';
+import authImg from "..//assets/library-9784151_1280.png"
 const AuthLayout = () => {
     return (
         <div className='container mx-auto'>
@@ -9,13 +10,13 @@ const AuthLayout = () => {
                 <img src={logoimg} alt="" />
                </Link>
              </div>
-             <div className='flex items-center'>
+             <div className='grid grid-cols-1 md:grid-cols-2  justify-center items-center'>
                 <div className='flex-1'>
                     <Outlet></Outlet>
                 </div>
-                {/* <div className='flex-1'>
-                    <img src={Image} alt="" />
-                </div> */}
+                <div className='flex-1'>
+                    <img src={authImg} alt="" />
+                </div>
             </div>
         </div>
     );
