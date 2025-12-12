@@ -10,12 +10,14 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import Profile from "../Pages/Profile/Profile";
 import AllBooks from "../Pages/Books/AllBooks";
 import AddBooks from "../Pages/AddBooks/AddBooks";
+import ErrorPage from "../Pages/ErrorPage";
 
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: RootLayout,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
