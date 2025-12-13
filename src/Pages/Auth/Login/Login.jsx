@@ -3,11 +3,13 @@ import { AuthContext } from "../../../Contexts/AuthContext";
 import { Link, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { toast } from "react-toastify";
+
 import libImg from "..//..//..//assets/library-9784151_1280.png"
+import { TbFidgetSpinner } from "react-icons/tb";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signIn, googleLogin } = useContext(AuthContext);
+  const { signIn, googleLogin, loading } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -40,6 +42,7 @@ const Login = () => {
         navigate(`${location.state ? location.state.from : "/"}`);
       })
       .catch((error) => {
+        toast.error(error.message);
         setError(error);
       });
   };
@@ -59,6 +62,7 @@ const Login = () => {
         navigate("/");
       })
       .catch((error) => {
+        toast.error(error.message);
         setError(error.message);
       });
   };
@@ -72,8 +76,9 @@ const Login = () => {
 // grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-2 p-4
   return (
     <div className="card bg-base-100 mx-auto max-w-sm  shrink-0 shadow-2xl">
+      <h2 className="text-2xl font-bold text-center">Welcome Bark</h2>
       <div className="card-body ">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center">
             Login now!
           </h1>
           <form onSubmit={handleLogOut}>
@@ -117,13 +122,18 @@ const Login = () => {
             </div> */}
 
               {error && <p className="text-red-600">{error}</p>}
-              <button className="btn btn-neutral  bg-green-600 hover:bg-green-700 mt-4">
-                Login
+              <button className="btn btn-neutral  bg-blue-600 hover:bg-blue-700 mt-4">
+               {loading ? (
+                <TbFidgetSpinner className='animate-spin m-auto' />
+              ) : (
+                'Login'
+              )}
               </button>
             </fieldset>
           </form>
 
           {/* Google */}
+           <h3 className="text-center">------- OR -------</h3>
           <button
             onClick={handleGoogleLogin}
             className="btn bg-pink-200 hover:bg-pink-300 text-black border-[#e5e5e5]"
@@ -159,7 +169,7 @@ const Login = () => {
           </button>
           <p>
             Create An Account ? Please{" "}
-            <Link className="text-blue-700 " to="/register">
+            <Link className="text-blue-700 underline" to="/register">
               Register
             </Link>
           </p>

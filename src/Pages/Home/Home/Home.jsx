@@ -11,10 +11,10 @@ const Home = () => {
         <div className='container mx-auto'>
            <Banner></Banner> 
            <NewBook></NewBook>
-{/* 
+
            <div className='h-700px w-full'>
             <Coverage></Coverage>
-           </div> */}
+           </div>
 
            <WhyChoose></WhyChoose>
 

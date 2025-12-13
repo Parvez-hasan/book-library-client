@@ -11,6 +11,7 @@ import Profile from "../Pages/Profile/Profile";
 import AllBooks from "../Pages/Books/AllBooks";
 import AddBooks from "../Pages/AddBooks/AddBooks";
 import ErrorPage from "../Pages/ErrorPage";
+import BookDetails from "../Pages/Books/BookDetails";
 
 
 export const router = createBrowserRouter([
@@ -21,11 +22,17 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Home
+        Component: Home,
+          loader: () => fetch('/serviceCenter.json').then(res => res.json())
+
       },
       {
         path: 'books',
-
+        Component: AllBooks
+      },
+      {
+        path: 'books-details',
+        element: <PrivateRouter><BookDetails></BookDetails></PrivateRouter>
       },
        {
        path: 'profile',
@@ -36,7 +43,7 @@ export const router = createBrowserRouter([
       {
         path: 'coverage',
         Component: Coverage,
-        loader: () => fetch('/serviceCenter.json').then(res => res.json())
+      
       }
     ]
   },

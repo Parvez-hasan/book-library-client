@@ -4,11 +4,12 @@ import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import libImg from "..//..//..//assets/library-9784151_1280.png"
+import { TbFidgetSpinner } from 'react-icons/tb'
+import Loading from "../../../components/Loading";
 
 const Register = () => {
   
-  const { createUser, setUser, updateUser, googleLogin } =
+  const {loading, createUser, setUser, updateUser, googleLogin } =
     useContext(AuthContext);
 
   const [nameError, setNameError] = useState("");
@@ -16,6 +17,8 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
+
+    if (loading) return  <Loading></Loading>
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -92,8 +95,9 @@ const Register = () => {
 
   return (
     <div className="card bg-base-100 mx-auto max-w-sm shrink-0 shadow-2xl">
+       <h2 className="text-2xl font-bold text-center">Welcome To Book Library</h2>
       <div className="card-body">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+        <h1 className="text-1xl md:text-2xl lg:text-3xl font-bold text-center">
           Register now!
         </h1>
         <form onSubmit={handleRegister}>
@@ -134,7 +138,7 @@ const Register = () => {
                 name="password"
                 className="input"
                 required
-                placeholder="Password"
+                placeholder="*******"
               />
               <button
                 onClick={hendleShowPassword}
@@ -144,13 +148,19 @@ const Register = () => {
               </button>
             </div>
             {error && <p className="text-red-500">{error}</p>}
-            <button className="btn btn-neutral bg-green-600 hover:bg-green-700 mt-4">
-              Register
+            <button className="btn btn-neutral bg-blue-600 hover:bg-blue-700 mt-4">
+                {loading ? (
+                <TbFidgetSpinner className='animate-spin m-auto' />
+              ) : (
+                'Register'
+              )}
+              
             </button>
           </fieldset>
         </form>
         
         {/* Google */}
+        <h3 className="text-center">------- OR -------</h3>
         <button
           onClick={handleGoogleLogin}
           className="btn bg-pink-200 hover:bg-pink-300 text-black border-[#e5e5e5]"
