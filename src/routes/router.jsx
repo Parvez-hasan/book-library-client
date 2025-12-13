@@ -12,6 +12,7 @@ import AllBooks from "../Pages/Books/AllBooks";
 import AddBooks from "../Pages/AddBooks/AddBooks";
 import ErrorPage from "../Pages/ErrorPage";
 import BookDetails from "../Pages/Books/BookDetails";
+import ForgetPassword from "../Pages/Auth/ForgetPassword";
 
 
 export const router = createBrowserRouter([
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
        {
         path: 'register',
         Component: Register
+       },
+       {
+        path: 'forgetPassword',
+        Component: ForgetPassword
        }
     ]
   },

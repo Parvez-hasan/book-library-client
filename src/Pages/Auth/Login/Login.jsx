@@ -1,10 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../../Contexts/AuthContext";
 import { Link, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-
-import libImg from "..//..//..//assets/library-9784151_1280.png"
 import { TbFidgetSpinner } from "react-icons/tb";
 import toast from "react-hot-toast";
 
@@ -15,11 +13,10 @@ const Login = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  // const emailRef = useRef();
-  console.log(location);
+   const emailRef = useRef();
 
-  // const emailRef = useRef();
-  // const location = useLocation();
+//  console.log(location);
+
 
   //logout
   const handleLogOut = (e) => {
@@ -27,7 +24,7 @@ const Login = () => {
 
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+   // console.log(email, password);
 
     signIn(email, password)
       .then((result) => {
@@ -111,7 +108,8 @@ const Login = () => {
               </div>
 
               {/* forget password */}
-              {/* <div>
+
+            <div>
               <Link
                 to="/forgetPassword"
                 state={{ email: emailRef.current?.value || "" }}
@@ -119,7 +117,7 @@ const Login = () => {
               >
                 Forgot password?
               </Link>
-            </div> */}
+            </div>
 
               {error && <p className="text-red-600">{error}</p>}
               <button className="btn btn-neutral  bg-blue-600 hover:bg-blue-700 mt-4">
