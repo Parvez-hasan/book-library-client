@@ -30,7 +30,7 @@ const AllBooks = () => {
              <p className="font-bold text-pink-500">৳ 33</p>
          </div>
 
-          <button className="mt-3 bg-pink-600 text-white px-4 py-2 w-full rounded">
+          <button to={`books-details`} className="mt-3 bg-pink-600 text-white px-4 py-2 w-full rounded">
             View Details
           </button>
         </div>

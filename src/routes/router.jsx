@@ -13,6 +13,7 @@ import AddBooks from "../Pages/AddBooks/AddBooks";
 import ErrorPage from "../Pages/ErrorPage";
 import BookDetails from "../Pages/Books/BookDetails";
 import ForgetPassword from "../Pages/Auth/ForgetPassword";
+import Loading from "../components/Loading";
 
 
 export const router = createBrowserRouter([
@@ -24,12 +25,13 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-          loader: () => fetch('/serviceCenter.json').then(res => res.json())
-
+        loader: () => fetch('/serviceCenter.json').then(res => res.json()),
+        hydrateFallbackElement: <Loading></Loading>  
       },
       {
         path: 'books',
-        Component: AllBooks
+        Component: AllBooks,
+         hydrateFallbackElement: <Loading></Loading>  
       },
       {
         path: 'books-details',
