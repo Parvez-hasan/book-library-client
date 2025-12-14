@@ -1,16 +1,18 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../Contexts/AuthContext";
 import { Link, useNavigate } from "react-router";
-import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { TbFidgetSpinner } from 'react-icons/tb'
 import Loading from "../../../components/Loading";
+import toast from "react-hot-toast";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const Register = () => {
   
-  const {loading, createUser, setUser, updateUser, googleLogin } =
+  const {loading, createUser, setUser, updateUser, googleLogin, user } =
     useContext(AuthContext);
+  const axiosSecure = useAxiosSecure()
 
   const [nameError, setNameError] = useState("");
   const [error, setError] = useState("");
@@ -20,6 +22,7 @@ const Register = () => {
 
     if (loading) return  <Loading></Loading>
 
+    //register 
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -49,7 +52,10 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
+        console.log(result.user);
+        
         const user = result.user;
+
 
         toast.success("✅ Account Created Successfully!", { autoClose: 1200 });
 
@@ -63,7 +69,26 @@ const Register = () => {
             setError(errm);
             setUser(user);
           });
+
+          // user data save in database
+
+        const loggedUser = result.user;
+
+        const userInfo = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+          photo: loggedUser.photoURL,
+          role: "user",
+          createdAt: new Date(),
+        };
+
+        axiosSecure.post("/users", userInfo).then((res) => {
+          console.log("user data has been stored", res.data);
+          //  navigate(location.state || "/");
+          navigate("/");
+        })
       })
+
       .catch((error) => {
         setError(error.message);
         toast.error(error.message);
@@ -74,14 +99,28 @@ const Register = () => {
   // google login
   const handleGoogleLogin = () => {
     googleLogin()
-      .then(() => {
+      .then((result) => {
        
-        Swal.fire({
-          title: "🎉 Logged in with Google Successfully!",
-          icon: "success",
-          draggable: true,
+        toast.success( "🎉 Logged in with Google Successfully!")
+
+         // user data save in database
+
+        const loggedUser = result.user;
+
+        const userInfo = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+          photo: loggedUser.photoURL,
+          role: "user",
+          createdAt: new Date(),
+        };
+
+        axiosSecure.post("/users", userInfo).then((res) => {
+          console.log("user data has been stored", res.data);
+          //  navigate(location.state || "/");
+          navigate("/");
         });
-        navigate("/");
+       
       })
       .catch((err) => setError(err.message));
   };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import OrderModal from '../../components/Modal/OrderModal';
 
 const BookDetails = () => {
    const { id } = useParams();
@@ -59,6 +60,7 @@ const BookDetails = () => {
       </div>
 
       {/* Order Modal */}
+      
       {open && (
         <OrderModal
           book={book}
