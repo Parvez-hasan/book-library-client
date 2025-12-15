@@ -21,3 +21,11 @@
   border-radius: 18px;
   background: rgb(243, 226, 226);
 }
+
+
+/* bashboard menu  */
+.menu {
+  @apply block px-3 py-2 rounded-md text-gray-700 
+  hover:bg-pink-100 hover:text-pink-600 
+  transition;
+}

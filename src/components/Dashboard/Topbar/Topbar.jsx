@@ -1,5 +1,6 @@
 import { Menu } from "lucide-react";
 import useAuth from "../../../Hooks/useAuth";
+import logoImg from "..//..//..//assets/book-logo-removebg-preview.png"
 
 const Topbar = ({ toggle }) => {
 
@@ -11,6 +12,10 @@ const Topbar = ({ toggle }) => {
       <button onClick={toggle} className="md:hidden">
         <Menu />
       </button>
+
+      <figure>
+        <img className="h-12 w-16" src={logoImg} alt="" />
+      </figure>
 
       <h1 className="text-lg font-semibold text-pink-600">
         BookCourier Dashboard
