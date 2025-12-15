@@ -1,7 +1,14 @@
 import { NavLink } from "react-router";
+import useUserRole from "../../../Hooks/useUserRole";
+import Loading from "../../Loading";
 
 const Sidebar = ({ open }) => {
-  const { role } = useUserRole();
+
+  const { role, roleLoading } = useUserRole();
+
+if (roleLoading) {
+  return <Loading></Loading>
+}
 
   return (
     <aside
@@ -15,13 +22,13 @@ const Sidebar = ({ open }) => {
 
       {role === "user" && (
         <>
-          <NavLink to="/dashboard/my-orders" className="menu">
+          <NavLink to="/dashboard/my-orders" className="menu-desh">
             My Orders
           </NavLink>
-          <NavLink to="/dashboard/invoices" className="menu">
+          <NavLink to="/dashboard/invoices" className="menu-desh">
             Invoices
           </NavLink>
-          <NavLink to="/dashboard/profile" className="menu">
+          <NavLink to="/dashboard/profile" className="menu-desh">
             My Profile
           </NavLink>
         </>
@@ -29,13 +36,13 @@ const Sidebar = ({ open }) => {
 
       {role === "librarian" && (
         <>
-          <NavLink to="/dashboard/add-book" className="menu">
+          <NavLink to="/dashboard/add-book" className="menu-desh">
             Add Book
           </NavLink>
-          <NavLink to="/dashboard/my-books" className="menu">
+          <NavLink to="/dashboard/my-books" className="menu-desh">
             My Books
           </NavLink>
-          <NavLink to="/dashboard/orders" className="menu">
+          <NavLink to="/dashboard/orders" className="menu-desh">
             Orders
           </NavLink>
         </>
@@ -43,13 +50,13 @@ const Sidebar = ({ open }) => {
 
       {role === "admin" && (
         <>
-          <NavLink to="/dashboard/users" className="menu">
+          <NavLink to="/dashboard/users" className="menu-desh">
             All Users
           </NavLink>
-          <NavLink to="/dashboard/manage-books" className="menu">
+          <NavLink to="/dashboard/manage-books" className="menu-desh">
             Manage Books
           </NavLink>
-          <NavLink to="/dashboard/profile" className="menu">
+          <NavLink to="/dashboard/profile" className="menu-desh">
             My Profile
           </NavLink>
         </>

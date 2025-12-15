@@ -50,50 +50,76 @@ const Register = () => {
       return setError("Password must be at least 6 characters long.");
     }
 
-    createUser(email, password)
-      .then((result) => {
-        console.log(result.user);
+    // createUser(email, password)
+    //   .then((result) => {
+    //     console.log(result.user);
         
-        const user = result.user;
+    //     const user = result.user;
 
 
-        toast.success("✅ Account Created Successfully!", { autoClose: 1200 });
+    //     toast.success("✅ Account Created Successfully!", { autoClose: 1200 });
 
-        updateUser({ displayName: name, photoURL: photo })
-          .then(() => {
-            setUser({ ...user, displayName: name, photoURL: photo });
-            navigate("/");
-          })
-          .catch((err) => {
-            const errm = err.message;
-            setError(errm);
-            setUser(user);
-          });
+    //     updateUser({ displayName: name, photoURL: photo })
+    //       .then(() => {
+    //         setUser({ ...user, displayName: name, photoURL: photo });
+    //         navigate("/");
+    //       })
+    //       .catch((err) => {
+    //         const errm = err.message;
+    //         setError(errm);
+    //         setUser(user);
+    //       });
 
-          // user data save in database
+    //       // user data save in database
 
-        const loggedUser = result.user;
+    //     const loggedUser = result.user;
 
+    //     const userInfo = {
+    //       name: loggedUser.displayName,
+    //       email: loggedUser.email,
+    //       photo: loggedUser.photoURL,
+    //       role: "user",
+    //       createdAt: new Date(),
+    //     };
+
+    //     axiosSecure.post("/users", userInfo).then((res) => {
+    //       console.log("user data has been stored", res.data);
+    //       //  navigate(location.state || "/");
+    //       navigate("/");
+    //     })
+    //   })
+
+    createUser(email, password)
+  .then((result) => {
+    console.log(result.user);
+    
+
+    toast.success("✅ Account Created Successfully!");
+
+    updateUser({ displayName: name, photoURL: photo })
+      .then(() => {
+
+        
         const userInfo = {
-          name: loggedUser.displayName,
-          email: loggedUser.email,
-          photo: loggedUser.photoURL,
+          name: name,
+          email: email,
+          photo: photo,
           role: "user",
           createdAt: new Date(),
         };
 
         axiosSecure.post("/users", userInfo).then((res) => {
-          console.log("user data has been stored", res.data);
-          //  navigate(location.state || "/");
+          console.log("user data saved", res.data);
           navigate("/");
-        })
-      })
+        });
 
-      .catch((error) => {
-        setError(error.message);
-        toast.error(error.message);
-        toast.error("This didn't work.");
       });
+  })
+  .catch((error) => {
+    setError(error.message);
+    toast.error(error.message);
+  });
+
   };
 
   // google login

@@ -9,15 +9,17 @@ const AddBooks = () => {
   const axiosSecure = useAxiosSecure();
 
   const onSubmit = async (data) => {
+    
     const bookData = {
       title: data.title,
       author: data.author,
       category: data.category,
       description: data.description,
       price: Number(data.price),
-      stock: Number(data.stock),
       image: data.image,
-      year: Number(data.year),
+      librarianEmail: data.email,
+      status: data.status,
+      createdAt: new Date()
     };
 
     const res = await axiosSecure.post("/books", bookData);

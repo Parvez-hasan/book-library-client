@@ -24,7 +24,7 @@
 
 
 /* bashboard menu  */
-.menu {
+.menu-desh {
   @apply block px-3 py-2 rounded-md text-gray-700 
   hover:bg-pink-100 hover:text-pink-600 
   transition;

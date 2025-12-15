@@ -14,6 +14,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import BookDetails from "../Pages/Books/BookDetails";
 import ForgetPassword from "../Pages/Auth/ForgetPassword";
 import Loading from "../components/Loading";
+import MyOrders from "../components/Dashboard/UserDash/MyOrders";
 
 
 export const router = createBrowserRouter([
@@ -77,6 +78,13 @@ export const router = createBrowserRouter([
      </PrivateRouter>
    ),
    children: [
+
+    // User
+    {
+     path: 'my-orders',
+     element: <MyOrders></MyOrders>
+    },
+
     {
       path: 'addBooks',
       Component: AddBooks
