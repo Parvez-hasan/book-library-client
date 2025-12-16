@@ -1,15 +1,16 @@
-
-import toast from 'react-hot-toast';
 import { useForm } from "react-hook-form";
-import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
+import { User } from "lucide-react";
+import useAuth from "../../Hooks/useAuth";
 
 const AddBooks = () => {
+  const { user } = useAuth();
 
-    const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset ,  formState: { errors } } = useForm();
   const axiosSecure = useAxiosSecure();
 
   const onSubmit = async (data) => {
-    
     const bookData = {
       title: data.title,
       author: data.author,
@@ -17,9 +18,9 @@ const AddBooks = () => {
       description: data.description,
       price: Number(data.price),
       image: data.image,
-      librarianEmail: data.email,
+      librarianEmail: user.email,
       status: data.status,
-      createdAt: new Date()
+      createdAt: new Date(),
     };
 
     const res = await axiosSecure.post("/books", bookData);
@@ -35,22 +36,65 @@ const AddBooks = () => {
       <h2 className="text-2xl font-bold mb-4">Add New Book</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        {/* Book Title */}
+        <div>
+          <label className="label">Book Title</label>
+          <input
+            {...register("title", { required: true })}
+            className="input input-bordered w-full"
+          />
+          {errors.title && (
+            <p className="text-red-500 text-sm">Title required</p>
+          )}
+        </div>
 
-        <input {...register("title")} placeholder="Book Title" className="input" required />
+        {/* Author */}
+        <div>
+          <label className="label">Author</label>
+          <input
+            {...register("author", { required: true })}
+            className="input input-bordered w-full"
+          />
+        </div>
 
-        <input {...register("author")} placeholder="Author" className="input" required />
+        {/* Image URL */}
+        <div>
+          <label className="label">Book Image URL</label>
+          <input
+            {...register("image", { required: true })}
+            className="input input-bordered w-full"
+          />
+        </div>
 
-        <input {...register("category")} placeholder="Category" className="input" required />
+        {/* Price */}
+        <div>
+          <label className="label">Price</label>
+          <input
+            type="number"
+            {...register("price", { required: true })}
+            className="input input-bordered w-full"
+          />
+        </div>
 
-        <input {...register("price")} type="number" placeholder="Price" className="input" required />
+        {/* Status */}
+        <div>
+          <label className="label">Status</label>
+          <select
+            {...register("status")}
+            className="select select-bordered w-full"
+          >
+            <option value="published">Published</option>
+            <option value="unpublished">Unpublished</option>
+          </select>
+        </div>
 
-        <input {...register("stock")} type="number" placeholder="Stock" className="input" required />
-
-        <input {...register("year")} type="number" placeholder="Published Year" className="input" required />
-
-        <input {...register("image")} placeholder="Image URL" className="input" required />
-
-        <textarea {...register("description")} placeholder="Description" className="textarea" required />
+        <div>
+          <label className="label">Description</label>
+          <input
+            {...register("description", { required: true })}
+            className="input input-bordered w-full"
+          />
+        </div>
 
         <button className="btn btn-primary w-full">Add Book</button>
       </form>

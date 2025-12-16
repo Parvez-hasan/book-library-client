@@ -45,7 +45,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="container mx-auto navbar bg-blue-100 shadow-sm px-2 sticky top-0 z-50">
+    <div className="container mx-auto navbar bg-blue-100 dark:bg-gray-800 shadow-sm px-2 sticky top-0 z-50">
       {/* Left Section */}
       <div className="navbar-start">
         {/* Mobile Menu */}

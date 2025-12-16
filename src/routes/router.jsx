@@ -85,8 +85,9 @@ export const router = createBrowserRouter([
      element: <MyOrders></MyOrders>
     },
 
+
     {
-      path: 'addBooks',
+      path: 'add-books',
       Component: AddBooks
     }
    ]
