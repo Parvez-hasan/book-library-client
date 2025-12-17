@@ -17,6 +17,7 @@ import MyOrders from "../components/Dashboard/UserDash/MyOrders";
 import MyProfile from "../components/Dashboard/UserDash/MyProfile";
 import Invoices from "../components/Dashboard/UserDash/Invoices";
 import AddBooks from "../components/Dashboard/Librarian-Dash/AddBooks";
+import AboutUs from "../Pages/About/AboutUs";
 
 
 
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
         path: 'books',
         Component: AllBooks,
          hydrateFallbackElement: <Loading></Loading>  
+      },
+      {
+       path: 'about-us',
+       element: <AboutUs></AboutUs>
       },
       {
         path: 'books-details',

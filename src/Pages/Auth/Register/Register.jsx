@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../Contexts/AuthContext";
 import { Link, useNavigate } from "react-router";
-import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { TbFidgetSpinner } from 'react-icons/tb'
 import Loading from "../../../components/Loading";
