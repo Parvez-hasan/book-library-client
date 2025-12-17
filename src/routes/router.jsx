@@ -15,6 +15,7 @@ import BookDetails from "../Pages/Books/BookDetails";
 import ForgetPassword from "../Pages/Auth/ForgetPassword";
 import Loading from "../components/Loading";
 import MyOrders from "../components/Dashboard/UserDash/MyOrders";
+import MyProfile from "../components/Dashboard/UserDash/MyProfile";
 
 
 export const router = createBrowserRouter([
@@ -83,6 +84,10 @@ export const router = createBrowserRouter([
     {
      path: 'my-orders',
      element: <MyOrders></MyOrders>
+    },
+    {
+      path: 'my-profile',
+      element: <MyProfile></MyProfile>
     },
 
 

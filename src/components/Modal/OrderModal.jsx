@@ -70,7 +70,7 @@ const OrderModal = ({isOpen, closeModal, book, user}) => {
               {/* Book Info */}
               <div className="mb-4 border rounded p-3 bg-gray-50">
                 <p className="font-semibold">{book.title}</p>
-                <p className="text-sm text-gray-500">Price: ৳ {book.price}</p>
+                <p className="text-sm text-gray-500">Price: $ {book.price}</p>
               </div>
 
               {/* Order Form */}
