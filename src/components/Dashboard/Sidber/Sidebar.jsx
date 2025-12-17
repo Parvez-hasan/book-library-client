@@ -28,7 +28,7 @@ if (roleLoading) {
           <NavLink to="/dashboard/invoices" className="menu-desh">
             Invoices
           </NavLink>
-          <NavLink to="/dashboard/profile" className="menu-desh">
+          <NavLink to="/dashboard/my-profile" className="menu-desh">
             My Profile
           </NavLink>
         </>

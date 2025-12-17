@@ -98,8 +98,7 @@ const Register = () => {
 
     updateUser({ displayName: name, photoURL: photo })
       .then(() => {
-
-        
+      
         const userInfo = {
           name: name,
           email: email,

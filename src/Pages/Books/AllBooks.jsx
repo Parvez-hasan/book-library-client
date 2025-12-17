@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import img from "..//..//assets/library-9784151_1280.png";
 import { Link } from "react-router";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
@@ -12,7 +11,7 @@ const AllBooks = () => {
     axiosSecure.get("/books").then((res) => {
       setBooks(res.data);
     });
-  }, []);
+  }, [axiosSecure]);
 
   return (
 
@@ -22,7 +21,7 @@ const AllBooks = () => {
           key={book._id}
           className="border rounded p-4 shadow-sm hover:scale-105 transition ease-in-out"
         >
-          <img src={img} className="h-56 w-full object-cover rounded" />
+          <img src={book.image} className="h-56 w-full object-cover rounded" />
 
           <h2 className="text-xl font-semibold mt-2 px-1">{book.title} </h2>
          <div className="flex justify-between items-center p-1">
@@ -30,7 +29,7 @@ const AllBooks = () => {
              <p className="font-bold text-pink-500"> Price : $ {book.price} </p>
          </div>
 
-          <button to={`books-details`} className="mt-3 bg-pink-600 text-white px-4 py-2 w-full rounded">
+          <button className="mt-3 bg-pink-600 text-white px-4 py-2 w-full rounded">
             View Details
           </button>
         </div>

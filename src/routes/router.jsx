@@ -9,7 +9,6 @@ import PrivateRouter from "./PrivateRouter";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import Profile from "../Pages/Profile/Profile";
 import AllBooks from "../Pages/Books/AllBooks";
-import AddBooks from "../Pages/AddBooks/AddBooks";
 import ErrorPage from "../Pages/ErrorPage";
 import BookDetails from "../Pages/Books/BookDetails";
 import ForgetPassword from "../Pages/Auth/ForgetPassword";
@@ -17,6 +16,7 @@ import Loading from "../components/Loading";
 import MyOrders from "../components/Dashboard/UserDash/MyOrders";
 import MyProfile from "../components/Dashboard/UserDash/MyProfile";
 import Invoices from "../components/Dashboard/UserDash/Invoices";
+import AddBooks from "../components/Dashboard/Librarian-Dash/AddBooks";
 
 
 
@@ -100,7 +100,7 @@ export const router = createBrowserRouter([
     // Librarian 
     {
       path: 'add-books',
-      Component: AddBooks
+      element: <AddBooks></AddBooks>
     }
    ]
 

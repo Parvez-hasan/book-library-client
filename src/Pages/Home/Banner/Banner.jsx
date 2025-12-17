@@ -1,6 +1,5 @@
 
 import {motion, AnimatePresence } from "framer-motion";
-//import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 
@@ -61,7 +60,7 @@ const Banner = () => {
             </h2>
             <p className="text-lg mb-6">{slides[current].description}</p>
             <Link
-              to="/service"
+              to="/books"
               className="bg-green-600 px-6 py-3 font-semibold rounded-xl text-white hover:bg-green-700 transition"
             >
               Show All Books
