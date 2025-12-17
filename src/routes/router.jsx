@@ -16,6 +16,8 @@ import ForgetPassword from "../Pages/Auth/ForgetPassword";
 import Loading from "../components/Loading";
 import MyOrders from "../components/Dashboard/UserDash/MyOrders";
 import MyProfile from "../components/Dashboard/UserDash/MyProfile";
+import Invoices from "../components/Dashboard/UserDash/Invoices";
+
 
 
 export const router = createBrowserRouter([
@@ -89,8 +91,13 @@ export const router = createBrowserRouter([
       path: 'my-profile',
       element: <MyProfile></MyProfile>
     },
+    {
+      path: 'invoices',
+      element: <Invoices></Invoices>
+    },
 
 
+    // Librarian 
     {
       path: 'add-books',
       Component: AddBooks

@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
-import { User } from "lucide-react";
 import useAuth from "../../Hooks/useAuth";
 
 const AddBooks = () => {

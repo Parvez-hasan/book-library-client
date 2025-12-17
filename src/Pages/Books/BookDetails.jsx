@@ -47,7 +47,7 @@ const BookDetails = () => {
           </p>
 
           <p className="mt-6 text-2xl font-bold text-pink-600">
-            ৳ {book.price}
+            $ {book.price}
           </p>
 
           <button
