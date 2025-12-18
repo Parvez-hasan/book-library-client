@@ -18,6 +18,7 @@ import MyProfile from "../components/Dashboard/UserDash/MyProfile";
 import Invoices from "../components/Dashboard/UserDash/Invoices";
 import AddBooks from "../components/Dashboard/Librarian-Dash/AddBooks";
 import AboutUs from "../Pages/About/AboutUs";
+import Contact from "../Pages/Contact/Contact";
 
 
 
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
       {
        path: 'about-us',
        element: <AboutUs></AboutUs>
+      },
+      {
+        path: 'contact',
+        element: <Contact></Contact>
       },
       {
         path: 'books-details',

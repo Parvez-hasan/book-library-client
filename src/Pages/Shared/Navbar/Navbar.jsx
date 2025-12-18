@@ -40,6 +40,12 @@ const Navbar = () => {
       </li>
 
       <li>
+        <NavLink to="/contact" className="hover:text-pink-500 hover:font-bold">
+          Contact
+        </NavLink>
+      </li>
+
+      <li>
         <NavLink
           to="/dashboard"
           className="hover:text-pink-500 hover:font-bold"
