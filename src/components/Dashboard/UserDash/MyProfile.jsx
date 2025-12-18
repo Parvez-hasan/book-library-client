@@ -10,7 +10,7 @@ const MyProfile = () => {
         className="w-24 h-24 rounded-full mx-auto"
       />
 
-      <h2 className="text-xl text-center mt-4 font-bold">
+      <h2 className="text-xl dark:text-gray-400 text-center mt-4 font-bold">
         {user.displayName}
       </h2>
 

@@ -17,8 +17,8 @@ const AddBooks = () => {
       description: data.description,
       price: Number(data.price),
       image: data.image,
+      status: "published" | "unpublished",
       librarianEmail: user.email,
-      status: data.status,
       createdAt: new Date(),
     };
 

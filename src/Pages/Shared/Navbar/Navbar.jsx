@@ -57,7 +57,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="container mx-auto navbar bg-blue-100 dark:bg-gray-800 shadow-sm px-2 sticky top-0 z-50">
+    <div className="container mx-auto navbar bg-blue-100 dark:bg-gray-800 shadow-sm px-2 sticky top-0 z-[1000]">
       {/* Left Section */}
       <div className="navbar-start">
         {/* Mobile Menu */}
@@ -164,7 +164,7 @@ const Navbar = () => {
           <>
             <Link to="/register">
               <button
-                className="overflow-hidden mr-2 px-4 py-2 bg-black text-white  
+                className="overflow-hidden hidden sm:block mr-2 px-4 py-2 bg-black text-white  
             rounded-md font-semibold cursor-pointer relative z-10 group"
               >
                 Register
