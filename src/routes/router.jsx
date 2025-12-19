@@ -19,6 +19,8 @@ import Invoices from "../components/Dashboard/UserDash/Invoices";
 import AddBooks from "../components/Dashboard/Librarian-Dash/AddBooks";
 import AboutUs from "../Pages/About/AboutUs";
 import Contact from "../Pages/Contact/Contact";
+import DashboardRoot from "../components/Dashboard/DashboardRoot/DashboardRoot";
+import UserRouter from "./RoleRouter/UserRouter";
 
 
 
@@ -92,20 +94,28 @@ export const router = createBrowserRouter([
    ),
    children: [
 
+    {
+      index: true,
+      element: <DashboardRoot></DashboardRoot>
+    },
+
     // User
     {
      path: 'my-orders',
-     element: <MyOrders></MyOrders>
+     element: <UserRouter>
+      <MyOrders></MyOrders>
+     </UserRouter>
     },
+    {
+      path: 'invoices',
+      element: <UserRouter><Invoices></Invoices>
+      </UserRouter>
+    },
+
     {
       path: 'my-profile',
       element: <MyProfile></MyProfile>
     },
-    {
-      path: 'invoices',
-      element: <Invoices></Invoices>
-    },
-
 
     // Librarian 
     {

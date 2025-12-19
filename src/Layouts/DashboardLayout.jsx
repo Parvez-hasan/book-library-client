@@ -243,7 +243,7 @@ const DashboardLayout = () => {
               {/* Profile */}
               <li>
                 <Link
-                  to="/dashboard/profile"
+                  to="/dashboard/my-profile"
                   className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
                     "/dashboard/my-profile"
                   )}`}

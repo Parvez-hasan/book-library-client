@@ -5,7 +5,7 @@ import { Navigate } from 'react-router';
 
 const UserRouter = ({children}) => {
 
-   const [role, isRoleLoading] = useUserRole();
+   const {role, isRoleLoading} = useUserRole();
 
   if (isRoleLoading) return <Loading />;
   if (role === "customer") return children;

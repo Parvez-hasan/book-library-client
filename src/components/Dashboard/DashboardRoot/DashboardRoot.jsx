@@ -1,12 +1,13 @@
 import React from "react";
-import useAuth from "../../../Hooks/useAuth";
 import Loading from "../../Loading";
 import AdminRouter from '..//..//..//routes/RoleRouter/AdminRoter'
 import LibrarianRouter from '..//..//..//routes/RoleRouter/LibrarianRouter'
 import UserRouter from '..//..//..//routes/RoleRouter/UserRouter'
+import useUserRole from "../../../Hooks/useUserRole";
 
 const DashboardRoot = () => {
-    const [role, isRoleLoading] = useAuth()
+
+    const {role, isRoleLoading} = useUserRole()
 
     if(isRoleLoading) return <Loading></Loading>
   return (
@@ -14,7 +15,7 @@ const DashboardRoot = () => {
 
       {role === "admin" && <AdminRouter></AdminRouter> }
       {role === "Librarian" && <LibrarianRouter></LibrarianRouter> }
-      {role === "customer" && <UserRouter></UserRouter>}
+      {role === "customer" && <UserRouter></UserRouter> }
     </div>
   );
 };
