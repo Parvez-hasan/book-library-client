@@ -1,0 +1,22 @@
+import React from "react";
+import useAuth from "../../../Hooks/useAuth";
+import Loading from "../../Loading";
+import AdminRouter from '..//..//..//routes/RoleRouter/AdminRoter'
+import LibrarianRouter from '..//..//..//routes/RoleRouter/LibrarianRouter'
+import UserRouter from '..//..//..//routes/RoleRouter/UserRouter'
+
+const DashboardRoot = () => {
+    const [role, isRoleLoading] = useAuth()
+
+    if(isRoleLoading) return <Loading></Loading>
+  return (
+    <div>
+
+      {role === "admin" && <AdminRouter></AdminRouter> }
+      {role === "Librarian" && <LibrarianRouter></LibrarianRouter> }
+      {role === "customer" && <UserRouter></UserRouter>}
+    </div>
+  );
+};
+
+export default DashboardRoot;

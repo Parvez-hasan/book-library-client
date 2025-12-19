@@ -1,74 +1,271 @@
 import React from "react";
-import useUserRole from "../Hooks/useUserRole";
 import Loading from "../components/Loading";
-import { Link, NavLink, Outlet } from "react-router";
-import logo from '..//assets/book-logo-removebg-preview.png'
-import Topbar from "../components/Dashboard/Topbar/Topbar";
+import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router";
+import { FiHome, FiMenu } from "react-icons/fi";
+import { FaBook, FaHeartPulse, FaJediOrder, FaRegCircleUser } from "react-icons/fa6";
+import { IoMdLogOut } from "react-icons/io";
+import { MdDashboard } from "react-icons/md";
+import { GrUserManager } from "react-icons/gr";
+import { LiaFileInvoiceSolid } from "react-icons/lia";
+import { SiWikibooks } from "react-icons/si";
+import { BsBorderStyle } from "react-icons/bs";
+import logo from "..//assets/book-logo-removebg-preview.png";
+import useAuth from "../Hooks/useAuth";
+import Swal from "sweetalert2";
+import useUserRole from "../Hooks/useUserRole";
 
 const DashboardLayout = () => {
-  const { role, roleLoading } = useUserRole();
 
-  if (roleLoading) return <Loading></Loading>
+  const { pathname } = useLocation();
+  const { user, logout, loading } = useAuth();
+  const navigate = useNavigate();
+  const {role} = useUserRole()
+
+  const isActive = (path) =>
+    pathname.startsWith(path)
+      ? "bg-blue-100 dark:bg-blue-700 text-blue-700 dark:text-white font-semibold"
+      : "hover:bg-blue-50 dark:hover:bg-gray-700";
+
+      //logout user
+  const handleLogout = async () => {
+    const confirm = await Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to logout?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#2563eb",
+      cancelButtonColor: "#ec4899",
+      confirmButtonText: "Yes, logout!",
+    });
+
+    if (!confirm.isConfirmed) return;
+
+    try {
+      await logout();
+      Swal.fire({
+        title: "Logout Successful",
+        icon: "success",
+        confirmButtonColor: "#22c55e",
+      });
+      navigate("/");
+    } catch (error) {
+      Swal.fire({
+        title: "Logout Failed",
+        text: error.message,
+        icon: "error",
+        confirmButtonColor: "#ef4444",
+      });
+    }
+  };
+
+  if (loading) return <Loading></Loading>
 
   return (
-    <div className="drawer lg:drawer-open mt-2">
-         
-      <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
- 
-      {/* Main Content */}
-      <div className="drawer-content p-6">
-       <Topbar></Topbar>
-        <label htmlFor="dashboard-drawer" className="btn btn-primary mt-2 lg:hidden">
-          ☰
-        </label>
-        <Outlet />
-      </div>
+    <div className="min-h-screen bg-blue-50 dark:bg-gray-900 dark:text-white">
+      <div className="drawer lg:drawer-open">
+        <input id="drawer-toggle" type="checkbox" className="drawer-toggle" />
 
-      {/* Sidebar */}
-      
-      <div className="drawer-side">
+        {/* ====== main content ======= */}
 
-         <Link to='/'>
-         <figure>
-            <img className="h-10 w-12" src={logo} alt="" />
-        </figure>
-        </Link>
+        <div className="drawer-content flex flex-col">
+          {/* Navbar */}
+          <nav className="navbar shadow px-4 bg-white dark:bg-gray-800">
+            <label htmlFor="drawer-toggle" className="btn btn-ghost lg:hidden">
+              <FiMenu className="text-2xl text-blue-600" />
+            </label>
 
-        <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
+            <h2 className="text-2xl font-bold text-blue-600">
+              <Link
+              to="/">BookCourier</Link>
+            </h2>
+          </nav>
 
-        <ul className="menu p-4 w-72 min-h-full bg-base-200 space-y-2">
-          <h2 className="text-xl font-bold mb-4">Dashboard</h2>
+          <div className="p-6">
+            <Outlet />
+          </div>
+        </div>
 
-          {/* user */}
-          {role === "user" && (
-            <>
-              <NavLink to="/dashboard/my-orders">My Orders</NavLink>
-              <NavLink to="/dashboard/my-profile">My Profile</NavLink>
-              <NavLink to="/dashboard/invoices">Invoices</NavLink>
-            </>
-          )}
+        {/* ======= Sidebar ======= */}
+        <div className="drawer-side">
+          <label htmlFor="drawer-toggle" className="drawer-overlay"></label>
 
-          {/* librariyan */}
-          {role === "librarian" && (
-            <>
-              <NavLink to="/dashboard/add-books">Add Book</NavLink>
-              <NavLink to="/dashboard/my-books">My Books</NavLink>
-              <NavLink to="/dashboard/orders">Orders</NavLink>
-            </>
-          )}
+          <aside className="w-64 bg-white dark:bg-gray-800 shadow-lg min-h-full p-4 flex flex-col">
+            {/* User Info */}
+            <div className="text-center mb-6">
+              <img
+                src={user?.photoURL || "https://i.ibb.co/2y7Fh7L/user.png"}
+                alt="user"
+                className="w-16 h-16 rounded-full mx-auto border-2 border-blue-500"
+              />
+              <h4 className="mt-2 font-semibold text-blue-600">
+                {user?.displayName || "User"}
+              </h4>
+              <p className="text-xs text-gray-500 capitalize">{role}</p>
+            </div>
 
-          {/* admin */}
-          {role === "admin" && (
-            <>
-              <NavLink to="/dashboard/all-users">All Users</NavLink>
-              <NavLink to="/dashboard/manage-books">Manage Books</NavLink>
-              <NavLink to="/dashboard/my-profile">My Profile</NavLink>
-            </>
-          )}
+            <ul className="menu text-sm flex-1">
+              {/* Home */}
+              <li>
+                <Link
+                  to="/"
+                  className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
+                    "/"
+                  )}`}
+                >
+                  <FiHome />
+                  Home
+                </Link>
+              </li>
 
-          <div className="divider"></div>
-          <NavLink to="/">🏠 Back to Home</NavLink>
-        </ul>
+              <li>
+                <Link
+                  to="/dashboard"
+                  className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
+                    "/dashboard"
+                  )}`}
+                >
+                  <MdDashboard />
+                  Dashboard
+                </Link>
+              </li>
+
+              {/* ===== Customer ===== */}
+              {role === "customer" && (
+                <>
+                  <li>
+                    <Link
+                      to="/dashboard/myOrders"
+                      className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
+                        "/dashboard/myOrders"
+                      )}`}
+                    >
+                      <FaJediOrder />
+                      My Orders
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="/dashboard/invoices"
+                      className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
+                        "/dashboard/invoices"
+                      )}`}
+                    >
+                      <LiaFileInvoiceSolid />
+                      Invoices
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="/dashboard/wishlist"
+                      className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
+                        "/dashboard/wishlist"
+                      )}`}
+                    >
+                      <FaHeartPulse />
+                      Wishlist
+                    </Link>
+                  </li>
+                </>
+              )}
+
+              {/* ===== Librarian ===== */}
+              {role === "Librarian" && (
+                <>
+                  <li>
+                    <Link
+                      to="/dashboard/addbooks"
+                      className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
+                        "/dashboard/addbooks"
+                      )}`}
+                    >
+                      <FaBook />
+                      Add Book
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="/dashboard/mybooks"
+                      className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
+                        "/dashboard/mybooks"
+                      )}`}
+                    >
+                      <SiWikibooks />
+                      My Books
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="/dashboard/orders"
+                      className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
+                        "/dashboard/orders"
+                      )}`}
+                    >
+                      <BsBorderStyle />
+                      Orders
+                    </Link>
+                  </li>
+                </>
+              )}
+
+              {/* ===== admin ===== */}
+              {role === "admin" && (
+                <>
+                  <li>
+                    <Link
+                      to="/dashboard/allUser"
+                      className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
+                        "/dashboard/allUser"
+                      )}`}
+                    >
+                      <GrUserManager />
+                      All Users
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="/dashboard/manageBook"
+                      className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
+                        "/dashboard/manageBook"
+                      )}`}
+                    >
+                      <FaBook />
+                      Manage Books
+                    </Link>
+                  </li>
+                </>
+              )}
+
+              {/* Profile */}
+              <li>
+                <Link
+                  to="/dashboard/profile"
+                  className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
+                    "/dashboard/my-profile"
+                  )}`}
+                >
+                  <FaRegCircleUser />
+                  Profile
+                </Link>
+              </li>
+
+              {/* Logout */}
+              <li className="mt-2">
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-3 py-2 px-3 rounded-lg text-pink-600 hover:bg-pink-100 dark:hover:bg-pink-600 dark:text-white transition"
+                >
+                  <IoMdLogOut />
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </aside>
+        </div>
       </div>
     </div>
   );
