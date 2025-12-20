@@ -65,7 +65,7 @@ const DashboardLayout = () => {
       <div className="drawer lg:drawer-open">
         <input id="drawer-toggle" type="checkbox" className="drawer-toggle" />
 
-        {/* ====== main content ======= */}
+        {/* ====== main content ===== */}
 
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
@@ -85,7 +85,7 @@ const DashboardLayout = () => {
           </div>
         </div>
 
-        {/* ======= Sidebar ======= */}
+        {/* ======= Sidebar ====== */}
         <div className="drawer-side">
           <label htmlFor="drawer-toggle" className="drawer-overlay"></label>
 
@@ -175,9 +175,9 @@ const DashboardLayout = () => {
                 <>
                   <li>
                     <Link
-                      to="/dashboard/addbooks"
+                      to="/dashboard/add-books"
                       className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
-                        "/dashboard/addbooks"
+                        "/dashboard/add-books"
                       )}`}
                     >
                       <FaBook />
@@ -187,9 +187,9 @@ const DashboardLayout = () => {
 
                   <li>
                     <Link
-                      to="/dashboard/mybooks"
+                      to="/dashboard/my-books"
                       className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
-                        "/dashboard/mybooks"
+                        "/dashboard/my-books"
                       )}`}
                     >
                       <SiWikibooks />
@@ -240,7 +240,7 @@ const DashboardLayout = () => {
                 </>
               )}
 
-              {/* Profile */}
+          
               <li>
                 <Link
                   to="/dashboard/my-profile"
@@ -253,7 +253,7 @@ const DashboardLayout = () => {
                 </Link>
               </li>
 
-              {/* Logout */}
+          
               <li className="mt-2">
                 <button
                   onClick={handleLogout}

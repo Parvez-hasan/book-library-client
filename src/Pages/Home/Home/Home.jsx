@@ -12,16 +12,16 @@ const Home = () => {
            <Banner></Banner> 
            <NewBook></NewBook>
 
-           <div className='h-700px w-full'>
-            <Coverage></Coverage>
-           </div>
-
            <WhyChoose></WhyChoose>
 
            {/* 1 animated section */}
            <Features></Features>
 
            <Testimonial></Testimonial>
+
+           <div className='h-700px w-full'>
+            <Coverage></Coverage>
+           </div>
 
         </div>
     );
