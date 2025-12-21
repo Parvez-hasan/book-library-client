@@ -9,7 +9,6 @@ import { GrUserManager } from "react-icons/gr";
 import { LiaFileInvoiceSolid } from "react-icons/lia";
 import { SiWikibooks } from "react-icons/si";
 import { BsBorderStyle } from "react-icons/bs";
-import logo from "..//assets/book-logo-removebg-preview.png";
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
 import useUserRole from "../Hooks/useUserRole";
@@ -17,7 +16,7 @@ import useUserRole from "../Hooks/useUserRole";
 const DashboardLayout = () => {
 
   const { pathname } = useLocation();
-  const { user, logout, loading } = useAuth();
+  const { user, logOut, loading } = useAuth();
   const navigate = useNavigate();
   const {role} = useUserRole()
 
@@ -41,7 +40,7 @@ const DashboardLayout = () => {
     if (!confirm.isConfirmed) return;
 
     try {
-      await logout();
+      await logOut();
       Swal.fire({
         title: "Logout Successful",
         icon: "success",
@@ -85,7 +84,7 @@ const DashboardLayout = () => {
           </div>
         </div>
 
-        {/* ======= Sidebar ====== */}
+        {/* ==== Sidebar === */}
         <div className="drawer-side">
           <label htmlFor="drawer-toggle" className="drawer-overlay"></label>
 
@@ -134,7 +133,7 @@ const DashboardLayout = () => {
                 <>
                   <li>
                     <Link
-                      to="/dashboard/myOrders"
+                      to="/dashboard/my-Orders"
                       className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
                         "/dashboard/myOrders"
                       )}`}
@@ -158,7 +157,7 @@ const DashboardLayout = () => {
 
                   <li>
                     <Link
-                      to="/dashboard/wishlist"
+                      to="/dashboard/wish-list"
                       className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
                         "/dashboard/wishlist"
                       )}`}
@@ -216,7 +215,7 @@ const DashboardLayout = () => {
                 <>
                   <li>
                     <Link
-                      to="/dashboard/allUser"
+                      to="/dashboard/all-User"
                       className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
                         "/dashboard/allUser"
                       )}`}
@@ -228,7 +227,7 @@ const DashboardLayout = () => {
 
                   <li>
                     <Link
-                      to="/dashboard/manageBook"
+                      to="/dashboard/manage-Book"
                       className={`flex items-center gap-3 py-2 px-3 rounded-lg ${isActive(
                         "/dashboard/manageBook"
                       )}`}

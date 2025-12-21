@@ -6,21 +6,23 @@ import Login from "../Pages/Auth/Login/Login";
 import Register from "../Pages/Auth/Register/Register";
 import Coverage from "../Pages/Coverage/Coverage";
 import PrivateRouter from "./PrivateRouter";
-import DashboardLayout from "../Layouts/DashboardLayout";
 import Profile from "../Pages/Profile/Profile";
 import AllBooks from "../Pages/Books/AllBooks";
 import ErrorPage from "../Pages/ErrorPage";
 import BookDetails from "../Pages/Books/BookDetails";
 import ForgetPassword from "../Pages/Auth/ForgetPassword";
 import Loading from "../components/Loading";
-import MyOrders from "../components/Dashboard/UserDash/MyOrders";
-import MyProfile from "../components/Dashboard/UserDash/MyProfile";
-import Invoices from "../components/Dashboard/UserDash/Invoices";
-import AddBooks from "../components/Dashboard/Librarian-Dash/AddBooks";
 import AboutUs from "../Pages/About/AboutUs";
 import Contact from "../Pages/Contact/Contact";
 import DashboardRoot from "../components/Dashboard/DashboardRoot/DashboardRoot";
 import UserRouter from "./RoleRouter/UserRouter";
+import DashboardLayout from "../Layouts/DashboardLayout"
+import MyOrder from "../Pages/Dashboard/MyOrder/MyOrder";
+import Invoices from "../Pages/Dashboard/Invoices/Invoices";
+import PaymentSuccess from "../Pages/Dashboard/PaymentSuccess/PaymentSuccess";
+import WisList from "../Pages/Dashboard/WishList/WisList";
+import LibrarianRouter from "./RoleRouter/LibrarianRouter"
+import AddBook from "../Pages/Dashboard/AddBook/AddBook";
 
 
 
@@ -37,9 +39,16 @@ export const router = createBrowserRouter([
         hydrateFallbackElement: <Loading></Loading>  
       },
       {
-        path: 'books',
+        path: 'all-books',
         Component: AllBooks,
          hydrateFallbackElement: <Loading></Loading>  
+      },
+      {
+        path: 'books/:id',
+        element: ( <PrivateRouter>
+          <BookDetails></BookDetails>
+        </PrivateRouter> 
+        ),
       },
       {
        path: 'about-us',
@@ -49,23 +58,22 @@ export const router = createBrowserRouter([
         path: 'contact',
         element: <Contact></Contact>
       },
-      {
-        path: 'books-details',
-        element: <PrivateRouter><BookDetails></BookDetails></PrivateRouter>
-      },
        {
        path: 'profile',
-       element: <PrivateRouter>
+       element: ( <PrivateRouter>
         <Profile></Profile>
        </PrivateRouter>
+       ),
       },
       {
         path: 'coverage',
         Component: Coverage,
-      
       }
     ]
   },
+
+
+  // auth route
   {
     path: "/",
     Component: AuthLayout,
@@ -85,13 +93,18 @@ export const router = createBrowserRouter([
     ]
   },
 
+
+  // dashboard route
+
   {
    path: 'dashboard',
+   errorElement: <ErrorPage />,
    element: (
      <PrivateRouter>
         <DashboardLayout></DashboardLayout>
      </PrivateRouter>
    ),
+
    children: [
 
     {
@@ -102,25 +115,47 @@ export const router = createBrowserRouter([
     // User
     {
      path: 'my-orders',
-     element: <UserRouter>
-      <MyOrders></MyOrders>
-     </UserRouter>
+     element: (
+         <UserRouter>
+          <MyOrder></MyOrder>
+         </UserRouter>
+     ),
     },
     {
       path: 'invoices',
-      element: <UserRouter><Invoices></Invoices>
+      element: (
+        <UserRouter><Invoices></Invoices>
       </UserRouter>
+      ),
     },
 
+   {
+      path: 'payment-success' ,
+      element : (
+          <UserRouter>
+            <PaymentSuccess></PaymentSuccess>
+          </UserRouter>
+      ),
+      
+   },
+
     {
-      path: 'my-profile',
-      element: <MyProfile></MyProfile>
+      path: 'wish-list',
+      element: (
+        <UserRouter>
+           <WisList></WisList>
+        </UserRouter>
+      )
     },
 
     // Librarian 
     {
       path: 'add-books',
-      element: <AddBooks></AddBooks>
+      element: (
+       
+          <AddBook></AddBook>
+       
+      )
     }
    ]
 

@@ -2,7 +2,7 @@ import React from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 
-const OrderModalRow = ({ order, refetch }) => {
+const OrderTableRow = ({ order, refetch }) => {
 
     const axiosSecure = useAxiosSecure();
   const {
@@ -162,4 +162,4 @@ const OrderModalRow = ({ order, refetch }) => {
   );
 };
 
-export default OrderModalRow;
+export default OrderTableRow;

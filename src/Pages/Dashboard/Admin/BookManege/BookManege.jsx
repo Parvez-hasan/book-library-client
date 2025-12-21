@@ -3,6 +3,7 @@ import React from 'react';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 import Loading from '../../../../components/Loading';
+import ManageBookTable from '../../../../components/Dashboard/AllTableRow/ManageBookTable';
 
 const BookManege = () => {
      const axiosSecure = useAxiosSecure();

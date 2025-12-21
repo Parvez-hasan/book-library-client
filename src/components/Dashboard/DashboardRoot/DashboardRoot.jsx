@@ -1,9 +1,9 @@
 import React from "react";
 import Loading from "../../Loading";
-import AdminRouter from '..//..//..//routes/RoleRouter/AdminRoter'
-import LibrarianRouter from '..//..//..//routes/RoleRouter/LibrarianRouter'
-import UserRouter from '..//..//..//routes/RoleRouter/UserRouter'
 import useUserRole from "../../../Hooks/useUserRole";
+import AdminDashboard from "../StataticDash/AdminDashboard";
+import LibrarianDashboard from "../StataticDash/LibrarianDashboard";
+import UserDashboard from "../StataticDash/UserDashboard";
 
 const DashboardRoot = () => {
 
@@ -13,9 +13,9 @@ const DashboardRoot = () => {
   return (
     <div>
 
-      {role === "admin" && <AdminRouter></AdminRouter> }
-      {role === "Librarian" && <LibrarianRouter></LibrarianRouter> }
-      {role === "customer" && <UserRouter></UserRouter> }
+      {role === "admin" && <AdminDashboard></AdminDashboard> }
+      {role === "Librarian" && <LibrarianDashboard></LibrarianDashboard> }
+      {role === "customer" && <UserDashboard></UserDashboard> }
     </div>
   );
 };

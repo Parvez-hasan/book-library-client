@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import logoImg from "..//..//..//assets/book-logo-removebg-preview.png";
 import useAuth from "../../../Hooks/useAuth";
+import useUserRole from "../../../Hooks/useUserRole";
 
 const Navbar = () => {
   const { user } = useAuth();
+  const [role] = useUserRole();
 
   // light dark mode add
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -28,7 +30,7 @@ const Navbar = () => {
       </li>
 
       <li>
-        <NavLink to="/books" className="hover:text-pink-500 hover:font-bold">
+        <NavLink to="/all-books" className="hover:text-pink-500 hover:font-bold">
           Books
         </NavLink>
       </li>
@@ -45,6 +47,12 @@ const Navbar = () => {
         </NavLink>
       </li>
 
+       {role === "customer" && (
+        <li>
+          <NavLink to="/dashboard/wish-list">My Wish List</NavLink>
+        </li>
+      )}
+
       <li>
         <NavLink
           to="/dashboard"
@@ -60,6 +68,7 @@ const Navbar = () => {
     <div className="container mx-auto navbar bg-blue-100 dark:bg-gray-800 shadow-sm px-2 sticky top-0 z-[1000]">
       {/* Left Section */}
       <div className="navbar-start">
+
         {/* Mobile Menu */}
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

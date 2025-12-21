@@ -3,6 +3,7 @@ import useAuth from '../../../Hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../../../components/Loading';
+import InvoicesTable from '../../../components/Dashboard/AllTableRow/InvoicesTable';
 
 const Invoices = () => {
 

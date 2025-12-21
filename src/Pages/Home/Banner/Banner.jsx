@@ -60,8 +60,8 @@ const Banner = () => {
             </h2>
             <p className="text-lg mb-6">{slides[current].description}</p>
             <Link
-              to="/books"
-              className="bg-green-600 px-6 py-3 font-semibold rounded-xl text-white hover:bg-green-700 transition"
+              to="/all-books"
+              className="bg-blue-600 px-6 py-3 font-semibold rounded-xl text-white hover:bg-blue-700 transition"
             >
               Show All Books
             </Link>

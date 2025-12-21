@@ -4,8 +4,9 @@ import useAuth from '../../../Hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
-import { FaBook, FaDollarSign,   FaCalendarAlt, FaImage,  FaLanguage, FaFileAlt,
- FaLayerGroup,FaSortNumericDown, FaUser } from 'react-icons/fa6';
+import { FaBook, FaDollarSign, FaImage,  FaLanguage,
+ FaLayerGroup, FaUser } from 'react-icons/fa6';
+import { FaCalendarAlt, FaFileAlt, FaSortNumericDown } from 'react-icons/fa';
 
 const AddBook = () => {
 
@@ -144,7 +145,7 @@ const AddBook = () => {
           <input
             {...register("pageNumber", { required: true })}
             type="number"
-            placeholder="Enter total pages"
+            placeholder="total pages"
             className="w-full border border-gray-300 text-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
         </div>

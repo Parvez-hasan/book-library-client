@@ -5,18 +5,18 @@ import Loading from "../components/Loading";
 
 const PrivateRouter = ({children}) => {
 
+
   const { user, loading } = useAuth();
   const location = useLocation();
 
-  if (loading) {
-    return <Loading></Loading>;
+  if (loading) return <Loading />;
+
+  if (user) {
+    return children;
   }
 
-  if (!user) {
-    return <Navigate state={location.pathname} to="/auth/login"></Navigate>;
-  }
+  return <Navigate to="/login" state={{ from: location.pathname }} replace />;
 
-  return children;
 };
 
 export default PrivateRouter;

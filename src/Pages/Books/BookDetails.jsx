@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import OrderModal from "../../components/Modal/OrderModal";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import Loading from "../../components/Loading";
 import BookRating from "../../components/BookRating/BookRating";
+import OrderModal from "../../components/AllModal/OrderModal";
 
 const BookDetails = () => {
 
