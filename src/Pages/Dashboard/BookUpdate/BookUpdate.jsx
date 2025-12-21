@@ -2,6 +2,17 @@ import React from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import { useParams } from 'react-router';
 import { useForm } from 'react-hook-form';
+import {
+  FaBook,
+  FaUser,
+  FaCalendarAlt,
+  FaLanguage,
+  FaDollarSign,
+  FaFileAlt,
+  FaImage,
+  FaLayerGroup,
+  FaSortNumericDown,
+} from "react-icons/fa";
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { imageUpload } from '../../../utiles';
@@ -74,6 +85,7 @@ const BookUpdate = () => {
 
 
   return (
+
     <div className="max-w-6xl mx-auto bg-white p-8 rounded-lg shadow-lg mt-8">
       <h1 className="text-3xl font-bold mb-8 text-center text-blue-600 ">
         Add New Book

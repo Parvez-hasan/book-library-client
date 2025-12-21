@@ -65,7 +65,7 @@ const DashboardLayout = () => {
       <div className="drawer lg:drawer-open">
         <input id="drawer-toggle" type="checkbox" className="drawer-toggle" />
 
-        {/* ====== main content ===== */}
+         {/* main content  */}
 
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
