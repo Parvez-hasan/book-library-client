@@ -72,7 +72,7 @@ const WisList = () => {
 
       <div className="overflow-x-auto">
         <table className="table w-full ">
-          <thead className="bg-blue-200">
+          <thead className="bg-blue-200 dark:text-gray-800">
             <tr>
               <th>No.</th>
               <th>Image</th>
@@ -86,7 +86,7 @@ const WisList = () => {
 
           <tbody>
             {wishLists.map((item, index) => (
-              <tr key={item._id} className="hover:bg-blue-100 ">
+              <tr key={item._id} >
                 <td>{index + 1}</td>
 
                 <td>

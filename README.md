@@ -1,8 +1,9 @@
 # 📚 BookCourier – Library-to-Home Delivery System
 
-🔗 **Live Site:** https://book-librariary-a-11.netlify.app/
-🔗 **Server Repo:** https://github.com/your-username/bookcourier-server  
-🔗 **Client Repo:** https://github.com/your-username/bookcourier-client  
+🔗 **Live Site:** https://book-librariary-a-11.netlify.app/ 
+
+🔗 **Server Repo:** https://github.com/Parvez-hasan/book-library-server 
+🔗 **Client Repo:** https://github.com/Parvez-hasan/book-library-client 
 
 ---
 
@@ -127,6 +128,7 @@ Each role has a dedicated dashboard with specific permissions and responsibiliti
 - SweetAlert2
 - React Hot Toast
 - Lucide React Icons
+- react-leaflet
 
 ---
 
@@ -137,6 +139,7 @@ Each role has a dedicated dashboard with specific permissions and responsibiliti
 - JWT Authentication
 - CORS
 - dotenv
+- stripe
 
 ---
 

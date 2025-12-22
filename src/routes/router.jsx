@@ -156,7 +156,8 @@ export const router = createBrowserRouter([
         <UserRouter>
            <WisList></WisList>
         </UserRouter>
-      )
+      ),
+      hydrateFallbackElement: <Loading></Loading>  
     },
 
     // Librarian 
