@@ -29,26 +29,26 @@ const Footer = () => {
               knowledge, <br /> and inspiration right to your doorstep.
           </p>
         </nav>
-        <nav>
+        <nav className="text-gray-900">
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">
+            <h3 className="text-lg dark:text-gray-100 font-semibold mb-4">
               Quick Links
             </h3>
             <ul className="space-y-2">
-              <li className="hover:text-blue-400 transition cursor-pointer">
+              <li className="hover:text-blue-400 dark:text-gray-100">
                 <Link to={"/"}> Home</Link>
               </li>
-              <li className="hover:text-blue-400 transition cursor-pointer">
+              <li className="hover:text-blue-400 transition dark:text-gray-100 cursor-pointer">
                 <Link
                   to={"/all-books"}
-                  className="hover:text-blue-400 transition cursor-pointer"
+                  className="hover:text-blue-400 transition dark:text-gray-100 cursor-pointer"
                 >
                   All Books
                 </Link>
               </li>
 
-              <li className="hover:text-blue-400 transition cursor-pointer">
+              <li className="hover:text-blue-400  dark:text-gray-100 transition cursor-pointer">
                 <Link to={"/contacts"}> Contact Us</Link>
               </li>
             </ul>

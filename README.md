@@ -1,16 +1,152 @@
-# React + Vite
+# 📚 BookCourier – Library-to-Home Delivery System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔗 **Live Site:** https://book-librariary-a-11.netlify.app/
+🔗 **Server Repo:** https://github.com/your-username/bookcourier-server  
+🔗 **Client Repo:** https://github.com/your-username/bookcourier-client  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Project Purpose
 
-## React Compiler
+**BookCourier** is a modern library-to-home delivery management system where users can browse books from nearby libraries, place delivery requests, track orders, and manage payments without physically visiting the library.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project is built to demonstrate:
+- Full-stack development skills
+- Role-based access control
+- Secure authentication & authorization
+- Clean UI/UX design
+- Scalable backend architecture
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 👥 User Roles
+
+- 👤 **User**
+- 📚 **Librarian**
+- 👑 **Admin**
+
+Each role has a dedicated dashboard with specific permissions and responsibilities.
+
+---
+
+## 🚀 Key Features
+
+### 🔐 Authentication & Security
+- Email & Password Authentication
+- Google Social Login
+- Firebase Authentication
+- JWT Token verification for protected server routes
+- Environment variables for Firebase & MongoDB credentials
+
+---
+
+### 🏠 Home Page
+- Hero Banner with 3 animated sliders
+- Latest Books section (last 4–6 added books)
+- Delivery Coverage Map
+- “Why Choose BookCourier” section
+- At least 2 extra well-designed sections
+- Framer Motion animations
+
+---
+
+### 📚 Books
+- All Books page with card layout
+- Search books by title
+- Sort books by price
+- Only **published** books are visible to users
+- Book Details page with full information
+
+---
+
+### 🛒 Book Order System
+- Order books via modal (Headless UI)
+- Order status tracking:
+  - `pending`
+  - `shipped`
+  - `delivered`
+  - `cancelled`
+- Payment status:
+  - `unpaid`
+  - `paid`
+
+---
+
+### ❤️ Wishlist (Challenge Feature)
+- Add book to wishlist from Book Details page
+- View wishlisted books in **User Dashboard → My Wishlist**
+
+---
+
+### ⭐ Review & Rating (Challenge Feature)
+- Only users who ordered a book can review it
+- Ratings & reviews visible on Book Details page
+
+---
+
+## 🧑‍💼 Dashboards
+
+### 👤 User Dashboard
+- My Orders (Cancel / Pay Now)
+- My Profile (Update name & image)
+- Invoices (Payment history)
+- My Wishlist
+
+---
+
+### 📚 Librarian Dashboard
+- Add Book
+- My Books (Publish / Unpublish)
+- Orders Management
+  - Update order status:
+    - pending → shipped → delivered
+
+---
+
+### 👑 Admin Dashboard
+- All Users
+  - Make Librarian
+  - Make Admin
+- Manage Books
+  - Publish / Unpublish
+  - Delete books (also deletes related orders)
+- My Profile
+
+---
+
+## 🧱 Tech Stack
+
+### 🖥️ Frontend
+- React 
+- React Router 
+- Tailwind CSS 
+- DaisyUI
+- Framer Motion
+- Firebase Authentication
+- Axios 
+- SweetAlert2
+- React Hot Toast
+- Lucide React Icons
+
+---
+
+### 🌐 Backend
+- Node.js
+- Express.js
+- MongoDB Atlas
+- JWT Authentication
+- CORS
+- dotenv
+
+---
+
+## 🔐 Environment Variables
+
+### Client Side
+```env
+VITE_FIREBASE_API_KEY=your_key
+VITE_FIREBASE_AUTH_DOMAIN=your_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
