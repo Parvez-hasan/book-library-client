@@ -97,7 +97,7 @@ const Testimonial = () => {
         }}
       >
         {items.map((item) => (
-          <SwiperSlide>
+          <SwiperSlide >
             <div
               key={item.id}
               className="p-4  border rounded bg-white dark:bg-slate-800"

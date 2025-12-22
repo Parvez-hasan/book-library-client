@@ -44,7 +44,7 @@ const ForgetPassword = () => {
     
     className="card bg-blue-50 w-full max-w-sm mx-auto mt-6 py-2 shadow-xl">
       <div className="card-body">
-        <h2 className="text-2xl font-bold text-green-600 mb-3">
+        <h2 className="text-2xl font-bold text-blue-600 mb-3">
           Reset Password
         </h2>
         <form onSubmit={handleResetPassword}>
@@ -56,7 +56,7 @@ const ForgetPassword = () => {
             className="input input-bordered w-full"
             placeholder="Enter your registered email"
           />
-          <button className="btn bg-green-600 text-white w-full mt-4">
+          <button className="btn bg-blue-600 text-white w-full mt-4">
             Reset Password
           </button>
         </form>

@@ -8,7 +8,8 @@ import toast from "react-hot-toast";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const Login = () => {
-  const { signIn, googleLogin, loading, user } = useContext(AuthContext);
+  
+  const { signIn, googleLogin, loading } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -60,7 +61,7 @@ const Login = () => {
           name: loggedUser.displayName,
           email: loggedUser.email,
           photo: loggedUser.photoURL,
-          role: "user",
+          role: "customer",
           createdAt: new Date(),
         };
 

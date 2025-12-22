@@ -37,7 +37,7 @@ const Contact = () => {
             required
             className="w-full border rounded-md px-4 py-2 focus:outline-none"
           ></textarea>
-          <button className="w-full bg-black text-white py-2 rounded-md hover:opacity-90">
+          <button className="w-full bg-blue-700 text-white py-2 rounded-md hover:opacity-90">
             Send Message
           </button>
         </form>

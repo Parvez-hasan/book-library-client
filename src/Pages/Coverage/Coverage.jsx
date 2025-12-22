@@ -8,7 +8,7 @@ const Coverage = () => {
   const position = [23.685, 90.3563];
   const serviceCenters = useLoaderData();
 
-  console.log(serviceCenters);
+ // console.log(serviceCenters);
 
   const mapRef = useRef(null);
 

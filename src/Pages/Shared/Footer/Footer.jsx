@@ -25,31 +25,34 @@ const Footer = () => {
             </a>
           </div>
           <p className=" text-gray-700 dark:text-gray-100">
-           Library to home delivery system.
+           Library to home delivery system. We bring stories,
+              knowledge, <br /> and inspiration right to your doorstep.
           </p>
         </nav>
         <nav>
-          <h6 className="font-bold  text-gray-700 dark:text-gray-100 py-2">
-           Our Service
-          </h6>
-          <a className="link  text-gray-700 dark:text-gray-100 link-hover">
-            Door & Lock Repair
-          </a>
-          <a className="link  text-gray-700 dark:text-gray-100 link-hover">
-            Electricians Near
-          </a>
-          <a className="link  text-gray-700 dark:text-gray-100 link-hover">
-            Home Cleaning Services
-          </a>
-          <a className="link  text-gray-700 dark:text-gray-100 link-hover">
-            Reliable Plumber
-          </a>
-          <a className="link  text-gray-700 dark:text-gray-100 link-hover">
-            Painting Service
-          </a>
-          <a className="link  text-gray-700 dark:text-gray-100 link-hover">
-            Home Repairs
-          </a>
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">
+              Quick Links
+            </h3>
+            <ul className="space-y-2">
+              <li className="hover:text-blue-400 transition cursor-pointer">
+                <Link to={"/"}> Home</Link>
+              </li>
+              <li className="hover:text-blue-400 transition cursor-pointer">
+                <Link
+                  to={"/all-books"}
+                  className="hover:text-blue-400 transition cursor-pointer"
+                >
+                  All Books
+                </Link>
+              </li>
+
+              <li className="hover:text-blue-400 transition cursor-pointer">
+                <Link to={"/contacts"}> Contact Us</Link>
+              </li>
+            </ul>
+          </div>
         </nav>
         <nav>
           <h6 className="font-bold dark:text-gray-100 text-gray-700 py-2">

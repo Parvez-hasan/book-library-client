@@ -6,11 +6,11 @@ import { TbFidgetSpinner } from 'react-icons/tb'
 import Loading from "../../../components/Loading";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useAuth from "../../../Hooks/useAuth";
 
 const Register = () => {
   
-  const {loading, createUser, setUser, updateUser, googleLogin, user } =
-    useContext(AuthContext);
+  const {loading, createUser, updateUser, googleLogin } = useAuth();
   const axiosSecure = useAxiosSecure()
 
   const [nameError, setNameError] = useState("");
@@ -19,7 +19,7 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-    if (loading) return  <Loading></Loading>
+   // if (loading) return  <Loading></Loading>
 
     //register 
   const handleRegister = (e) => {
@@ -49,45 +49,6 @@ const Register = () => {
       return setError("Password must be at least 6 characters long.");
     }
 
-    // createUser(email, password)
-    //   .then((result) => {
-    //     console.log(result.user);
-        
-    //     const user = result.user;
-
-
-    //     toast.success("✅ Account Created Successfully!", { autoClose: 1200 });
-
-    //     updateUser({ displayName: name, photoURL: photo })
-    //       .then(() => {
-    //         setUser({ ...user, displayName: name, photoURL: photo });
-    //         navigate("/");
-    //       })
-    //       .catch((err) => {
-    //         const errm = err.message;
-    //         setError(errm);
-    //         setUser(user);
-    //       });
-
-    //       // user data save in database
-
-    //     const loggedUser = result.user;
-
-    //     const userInfo = {
-    //       name: loggedUser.displayName,
-    //       email: loggedUser.email,
-    //       photo: loggedUser.photoURL,
-    //       role: "user",
-    //       createdAt: new Date(),
-    //     };
-
-    //     axiosSecure.post("/users", userInfo).then((res) => {
-    //       console.log("user data has been stored", res.data);
-    //       //  navigate(location.state || "/");
-    //       navigate("/");
-    //     })
-    //   })
-
     createUser(email, password)
   .then((result) => {
     console.log(result.user);
@@ -102,7 +63,7 @@ const Register = () => {
           name: name,
           email: email,
           photo: photo,
-          role: "user",
+          role: "customer",
           createdAt: new Date(),
         };
 
@@ -135,7 +96,7 @@ const Register = () => {
           name: loggedUser.displayName,
           email: loggedUser.email,
           photo: loggedUser.photoURL,
-          role: "user",
+          role: "customer",
           createdAt: new Date(),
         };
 

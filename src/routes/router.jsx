@@ -24,6 +24,13 @@ import WisList from "../Pages/Dashboard/WishList/WisList";
 import LibrarianRouter from "./RoleRouter/LibrarianRouter"
 import AddBook from "../Pages/Dashboard/AddBook/AddBook";
 import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
+import MyBook from "../Pages/Dashboard/MyBook/MyBook";
+import BookUpdate from "../Pages/Dashboard/BookUpdate/BookUpdate";
+
+import AdminRoter from "../routes/RoleRouter/AdminRoter";
+import UserManagement from "../Pages/Dashboard/Admin/UserManagement/UserManagement";
+import Order from "../Pages/Dashboard/Order/Order"
+
 
 
 
@@ -160,8 +167,44 @@ export const router = createBrowserRouter([
       ),
     },
     {
+      path : 'my-books',
+      element : (
+        <PrivateRouter>
+          <MyBook></MyBook>
+        </PrivateRouter>
+      ),
+    },
+    {
+     path : 'update-book/:id',
+     element: (
+      <LibrarianRouter>
+        <BookUpdate></BookUpdate>
+      </LibrarianRouter>
+     )
+    },
+     
+
+    {
+      path: 'orders',
+      element : (
+         <LibrarianRouter>
+          <Order></Order>
+         </LibrarianRouter>
+      ),
+    },
+    {
       path: 'my-profile',
       element : <MyProfile></MyProfile>
+    },
+   
+    // Admin 
+    {
+      path: 'all-user',
+      element: (
+         <AdminRoter>
+           <UserManagement></UserManagement>
+         </AdminRoter>
+      ),
     }
    ]
 
