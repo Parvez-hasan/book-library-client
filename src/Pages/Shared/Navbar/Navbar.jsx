@@ -49,7 +49,7 @@ const Navbar = () => {
 
        {role === "customer" && (
         <li>
-          <NavLink to="/dashboard/wish-list">My Wish List</NavLink>
+          <NavLink to="/dashboard/wish-list" className="hover:text-pink-500 hover:font-bold">My Wish List</NavLink>
         </li>
       )}
 
@@ -125,7 +125,7 @@ const Navbar = () => {
       <div className="navbar-end">
         
         {/* light dark contorl section */}
-        <label class="inline-flex items-center relative">
+        <label className="inline-flex items-center relative">
           <input
             type="checkbox"
             className="peer hidden"

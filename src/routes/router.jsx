@@ -23,6 +23,7 @@ import PaymentSuccess from "../Pages/Dashboard/PaymentSuccess/PaymentSuccess";
 import WisList from "../Pages/Dashboard/WishList/WisList";
 import LibrarianRouter from "./RoleRouter/LibrarianRouter"
 import AddBook from "../Pages/Dashboard/AddBook/AddBook";
+import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
 
 
 
@@ -49,6 +50,7 @@ export const router = createBrowserRouter([
           <BookDetails></BookDetails>
         </PrivateRouter> 
         ),
+         hydrateFallbackElement: <Loading></Loading>  
       },
       {
        path: 'about-us',
@@ -152,10 +154,14 @@ export const router = createBrowserRouter([
     {
       path: 'add-books',
       element: (
-       
-          <AddBook></AddBook>
-       
-      )
+       <LibrarianRouter>
+        <AddBook></AddBook>
+       </LibrarianRouter>    
+      ),
+    },
+    {
+      path: 'my-profile',
+      element : <MyProfile></MyProfile>
     }
    ]
 

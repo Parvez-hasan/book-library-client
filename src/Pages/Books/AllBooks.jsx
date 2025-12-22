@@ -42,12 +42,12 @@ const AllBooks = () => {
 
   return (
 
-    <div className="max-w-6xl mx-auto py-8 gap-6">
+    <div className="container mx-auto py-6 gap-8">
       
         <h2 className="text-4xl font-bold text-pink-500 text-center mb-4">
           All Books
         </h2>
-        <div className="mb-6 flex flex-col md:flex-row items-center justify-between gap-4 ">
+        <div className="mb-6 flex flex-col md:flex-row items-center justify-between gap-4 p-4">
           {/* Search filed */}
           <div className="w-full md:w-1/2">
             <input
@@ -55,7 +55,7 @@ const AllBooks = () => {
               value={searBook}
               onChange={(e) => setSearchBook(e.target.value)}
               placeholder="Search Book..."
-              className="w-full py-3 pl-4 pr-4 border rounded-sm shadow-sm outline-none border-purple-400"
+              className="w-full py-3 pl-4 pr-4 border rounded-sm shadow-sm outline-none border-blue-400"
             />
           </div>
 
@@ -64,7 +64,7 @@ const AllBooks = () => {
             <select
               onChange={(e) => setSortBook(e.target.value)}
               value={sortBook}
-              className="w-full appearance-none py-3 pl-4 pr-10 border rounded-sm  outline-none border-purple-400 "
+              className="w-full appearance-none py-3 pl-4 pr-10 border rounded-sm  outline-none border-blue-400 "
             >
               <option disabled selected>
                 Sort By Price
@@ -87,7 +87,7 @@ const AllBooks = () => {
           <button
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(currentPage - 1)}
-            className="px-4 py-2 bg-blue-600 text-white rounded disabled:bg-gray-600"
+            className="px-3 py-2 bg-blue-600 text-white rounded disabled:bg-gray-600"
           >
             Prev
           </button>
@@ -109,7 +109,7 @@ const AllBooks = () => {
           <button
             disabled={currentPage === totalPages}
             onClick={() => setCurrentPage(currentPage + 1)}
-            className="px-4 py-2 bg-blue-600 text-white rounded disabled:bg-gray-600"
+            className="px-3 py-2 bg-blue-600 text-white rounded disabled:bg-gray-600"
           >
             Next
           </button>

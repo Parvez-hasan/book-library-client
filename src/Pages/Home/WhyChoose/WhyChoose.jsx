@@ -35,7 +35,7 @@ const WhyChoose = () => {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-2xl text-center font-semibold mb-2">
-          Why Choose BookCourier
+          <span className="text-blue-600">Why Choose</span> <span className="text-pink-600"> BookCourier</span>
         </h2>
 
         <p className="md:text-mx text-center font-semibold mx-auto text-gray-600 dark:text-gray-300 md:max-w-3/4 p-4">

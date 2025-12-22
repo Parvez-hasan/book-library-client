@@ -112,7 +112,8 @@ const MyProfile = () => {
           <div className="mt-5 w-full text-left space-y-2">
             <p>
               <span className="font-semibold">Created:</span>{" "}
-              {new Date(create_date).toLocaleString()}
+              {/* {new Date(create_date).toLocaleString()} */}
+              {create_date ? new Date(create_date).toLocaleString() : "N/A"}
             </p>
             <p>
               <span className="font-semibold">Last Login:</span>{" "}

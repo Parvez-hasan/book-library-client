@@ -94,7 +94,7 @@ const Profile = () => {
           />
           <button
             onClick={handleUpdate}
-            className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-lg transition"
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition"
           >
             Update Profile
           </button>

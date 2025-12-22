@@ -4,7 +4,7 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 
-const BookRating = () => {
+const BookRating = ({ book }) => {
 
      const { user } = useAuth();
      const axiosSecure = useAxiosSecure();
@@ -62,7 +62,7 @@ const BookRating = () => {
 
 
     return (
-       <div className="mt-10 max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-lg">
+       <div className="mt-10 max-w-3xl mx-auto p-6 bg-white rounded-xl dark:text-gray-800 shadow-lg">
       <h2 className="text-3xl font-bold mb-6 text-center">Reviews & Ratings</h2>
 
       {/*  Review Form */}

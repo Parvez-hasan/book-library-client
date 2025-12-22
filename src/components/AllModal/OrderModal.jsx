@@ -55,7 +55,7 @@ const OrderModal = ({ isOpen, closeModal, orderPayment, refetch }) => {
       onClose={closeModal}
     >
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div className="flex min-h-full items-center justify-center p-4">
+        <div className="flex min-h-full items-center justify-center dark:text-gray-800 p-4">
           <DialogPanel className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl">
             <DialogTitle className="text-lg font-semibold text-black">
              Book Update Status
