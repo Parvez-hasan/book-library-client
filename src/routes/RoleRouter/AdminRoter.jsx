@@ -5,7 +5,7 @@ import { Navigate } from 'react-router';
 
 const AdminRoter = ({children}) => {
 
-     const [role, isRoleLoading] = useUserRole();
+     const {role, isRoleLoading} = useUserRole();
 
   if (isRoleLoading) return <Loading></Loading>
   if (role === "admin") return children;
@@ -13,4 +13,4 @@ const AdminRoter = ({children}) => {
 
 };
 
-export default AdminRoter;
+export default AdminRoter;  

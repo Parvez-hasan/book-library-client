@@ -17,11 +17,13 @@ const useUserRole = () => {
     queryKey: ["role", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/user/role?email=${user.email}`);
+    //  console.log(res);
+      
       return res.data.role;
     },
   });
 
-  return [ role, isRoleLoading ];
+  return { role, isRoleLoading };
 };
 
 export default useUserRole;

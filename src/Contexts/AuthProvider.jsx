@@ -48,7 +48,7 @@ const AuthProvider = ({children}) => {
       setLoading(false);
     });
     return () => {
-      unsubscribe();
+  return  unsubscribe();
     };
   }, []);
 
@@ -64,7 +64,7 @@ const AuthProvider = ({children}) => {
     googleLogin,
     sendEmailVeri,
   };
-  console.log(user, loading);
+ // console.log(user, loading);
 
   return (
     <AuthContext.Provider value={AuthInfo}>{children}</AuthContext.Provider>

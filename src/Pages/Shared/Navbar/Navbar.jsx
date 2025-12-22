@@ -6,7 +6,7 @@ import useUserRole from "../../../Hooks/useUserRole";
 
 const Navbar = () => {
   const { user } = useAuth();
-  const [role] = useUserRole();
+  const {role} = useUserRole();
 
   // light dark mode add
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");

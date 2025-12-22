@@ -153,9 +153,9 @@ export const router = createBrowserRouter([
     {
       path: 'wish-list',
       element: (
-        <UserRouter>
+       // <UserRouter>
            <WisList></WisList>
-        </UserRouter>
+       // </UserRouter>
       ),
       hydrateFallbackElement: <Loading></Loading>  
     },
@@ -172,9 +172,9 @@ export const router = createBrowserRouter([
     {
       path : 'my-books',
       element : (
-        <PrivateRouter>
-          <MyBook></MyBook>
-        </PrivateRouter>
+       
+         <MyBook></MyBook>
+      
       ),
     },
     {
@@ -185,8 +185,6 @@ export const router = createBrowserRouter([
       </LibrarianRouter>
      )
     },
-     
-
     {
       path: 'orders',
       element : (

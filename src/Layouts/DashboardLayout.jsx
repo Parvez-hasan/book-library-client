@@ -20,6 +20,8 @@ const DashboardLayout = () => {
   const navigate = useNavigate();
   const {role} = useUserRole()
 
+  console.log(role);
+  
   const isActive = (path) =>
     pathname.startsWith(path)
       ? "bg-blue-100 dark:bg-blue-700 text-blue-700 dark:text-white font-semibold"
