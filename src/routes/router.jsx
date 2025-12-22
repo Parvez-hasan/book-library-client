@@ -30,6 +30,8 @@ import BookUpdate from "../Pages/Dashboard/BookUpdate/BookUpdate";
 import AdminRoter from "../routes/RoleRouter/AdminRoter";
 import UserManagement from "../Pages/Dashboard/Admin/UserManagement/UserManagement";
 import Order from "../Pages/Dashboard/Order/Order"
+import BookManege from "../Pages/Dashboard/Admin/BookManege/BookManege";
+//import BookManege from "../Pages/Dashboard/Admin/BookManege"
 
 
 
@@ -192,10 +194,7 @@ export const router = createBrowserRouter([
          </LibrarianRouter>
       ),
     },
-    {
-      path: 'my-profile',
-      element : <MyProfile></MyProfile>
-    },
+    
    
     // Admin 
     {
@@ -205,7 +204,20 @@ export const router = createBrowserRouter([
            <UserManagement></UserManagement>
          </AdminRoter>
       ),
-    }
+    
+    },
+    {
+     path: 'manage-book',
+     element: (
+        <AdminRoter>
+          <BookManege></BookManege>
+        </AdminRoter>
+     ),
+    },
+   {
+      path: 'my-profile',
+      element : <MyProfile></MyProfile>
+    },
    ]
 
   }
