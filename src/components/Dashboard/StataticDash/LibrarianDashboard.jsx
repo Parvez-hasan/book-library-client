@@ -10,7 +10,9 @@ const LibrarianDashboard = () => {
         Librarian Dashboard
       </h1>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-6 dark:text-gray-900">
+
+
         {/* Add Book */}
         <Link
           to={"/dashboard/add-books"}
@@ -20,6 +22,8 @@ const LibrarianDashboard = () => {
           <h2 className="text-xl font-bold mb-2">Add New Book</h2>
           <p>Add book to library.</p>
         </Link>
+
+
         {/* All Books */}
         <Link
           to={"/dashboard/my-books"}
@@ -29,6 +33,7 @@ const LibrarianDashboard = () => {
           <h2 className="text-xl font-bold mb-2">My Books</h2>
           <p>View, edit and remove book.</p>
         </Link>
+        
 
         {/* Users */}
         <Link

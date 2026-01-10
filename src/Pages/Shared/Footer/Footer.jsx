@@ -1,7 +1,7 @@
 import React from "react";
 import logoimg from "..//..//..//assets/book-logo-removebg-preview.png"
 import { CgMail } from "react-icons/cg";
-import { FaFacebook, FaLinkedin, FaLocationDot, FaPhone, FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaLocationDot, FaPhone, FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router";
 
 const Footer = () => {
@@ -25,8 +25,8 @@ const Footer = () => {
             </a>
           </div>
           <p className=" text-gray-700 dark:text-gray-100">
-           Library to home delivery system. We bring stories,
-              knowledge, <br /> and inspiration right to your doorstep.
+           Library to home delivery system. We bring stories, <br />
+              knowledge, and inspiration right to your doorstep.
           </p>
         </nav>
         <nav className="text-gray-900">
@@ -49,13 +49,13 @@ const Footer = () => {
               </li>
 
               <li className="hover:text-blue-400  dark:text-gray-100 transition cursor-pointer">
-                <Link to={"/contacts"}> Contact Us</Link>
+                <Link to={"/contact"}> Contact Us</Link>
               </li>
             </ul>
           </div>
         </nav>
         <nav>
-          <h6 className="font-bold dark:text-gray-100 text-gray-700 py-2">
+          <h6 className="text-lg text-gray-900 dark:text-gray-100 font-semibold mb-4">
             Contacts Us
           </h6>
           {/* location */}
@@ -65,7 +65,7 @@ const Footer = () => {
             </div>
             <div>
               <a className="link dark:text-gray-100 text-gray-700 link-hover">
-                17 Arlington St, Kishoreganj, Bangladesh
+                17 Arlington St, Kishoreganj, Bangladesh.
               </a>
             </div>
           </div>
@@ -96,38 +96,37 @@ const Footer = () => {
         </nav>
 
         <nav>
-          <h6 className="text-xl dark:text-gray-100 text-gray-700">
-            Social Links
+          <h6  className="text-lg text-gray-900 dark:text-gray-100 font-semibold mb-4">
+            <h3>Follow Us</h3>
+         
           </h6>
-          {/* twitter  */}
-          <div className="flex gap-5 py-2">
-            <span>
-              <FaXTwitter className=" text-black dark:text-gray-100 rounded-full" />
-            </span>
-            {/* linkedin */}
-            <a
-              href="https://www.linkedin.com/in/md-parvez-583031305/"
-              target="_blank"
-            >
-              <span>
-                <FaLinkedin className="dark:text-gray-100 text-black rounded-full" />
-              </span>
-            </a>
-            {/* facebook */}
-            <a
-              href="https://web.facebook.com/parvez.ahmed.577031"
-              target="_blank"
-            >
-              <span>
-                <FaFacebook className="dark:text-gray-100 text-black rounded-full" />
-              </span>
-            </a>
+             <p className="text-black dark:text-gray-200"> Stay connected with our community.</p>
+      
+          <div className="flex gap-5 py-2  ">
+        
+
+             <a href="https://web.facebook.com/parvez.ahmed.577031" target="_blank" className="bg-gray-800 p-3 rounded-full dark:bg-pink-700 hover:bg-blue-500 transition">
+                <FaFacebookF />
+              </a>
+              <a href="https://www.instagram.com/marketer_parvez" target="_blank" className="bg-gray-800 p-3 rounded-full dark:bg-pink-700 hover:bg-blue-500 transition">
+                <FaInstagram />
+              </a>
+               <a href="https://x.com/parvezhasan" target="_blank" className="bg-gray-800 p-3 rounded-full dark:bg-pink-700 hover:bg-blue-500 transition">
+              <FaXTwitter  />
+              </a>
+              <a href="https://www.linkedin.com/in/md-parvez-583031305/" target="_blank" className="bg-gray-800 p-3 rounded-full dark:bg-pink-700 hover:bg-blue-500 transition">
+                <FaLinkedinIn />
+              </a>
+                <a href="https://github.com/Parvez-hasan" target="_blank" className="bg-gray-800 p-3 rounded-full dark:bg-pink-700 hover:bg-blue-500 transition">
+                  <FaGithub />
+              </a>
+             
           </div>
         </nav>
       </div>
       <hr className="p-0.5 w-10/12 mx-auto bg-gray-600" />
       <p className="text-center dark:text-gray-100 text-gray-700 py-4 px-3">
-        Copyright © 2025 <span className="text-pink-500 font-medium"> BookCourier</span> - All right reserved
+        Copyright © 2026 <span className="text-pink-500 font-bold"> BookCourier</span> - All right reserved
       </p>
     </footer>
   );

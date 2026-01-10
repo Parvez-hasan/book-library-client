@@ -46,7 +46,7 @@ const NewBook = () => {
       className="container mx-auto px-4 py-8"
     >
       <h2 className="text-2xl text-blue-500 font-semibold flex justify-center items-center mb-4">
-        Latest Books
+        Latest And Popular Books 
       </h2>
 
       {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-4">

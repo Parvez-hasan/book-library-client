@@ -64,7 +64,7 @@ const AllBooks = () => {
             <select
               onChange={(e) => setSortBook(e.target.value)}
               value={sortBook}
-              className="w-full appearance-none py-3 pl-4 pr-10 border rounded-sm dark:text-gray-800 outline-none border-blue-400 "
+              className="w-full appearance-none py-3 pl-4 pr-10 border rounded-sm dark:text-gray-300 outline-none border-blue-400 "
             >
               <option disabled selected>
                 Sort By Price

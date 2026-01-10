@@ -94,7 +94,7 @@ const AdminDashboard = () => {
         Visit Live Website:{" "}
         <a
           className="text-blue-700 font-bold hover:underline"
-          href="https://book-courier-client-site.vercel.app/"
+          href="https://book-librariary-a-11.netlify.app/"
           target="_blank"
         >
           Book Courier Website
@@ -110,7 +110,7 @@ export default AdminDashboard;
 /* REUSABLE COMP */
 const DashboardCard = ({ icon, title, desc }) => {
   return (
-    <div className="p-6 bg-white/80 backdrop-blur-md shadow-xl hover:shadow-2xl cursor-pointer rounded-2xl border border-purple-100 hover:-translate-y-1 transition-all duration-300">
+    <div className="p-6 bg-white/80 backdrop-blur-md shadow-xl hover:shadow-2xl cursor-pointer rounded-2xl border border-blue-100 hover:-translate-y-1 transition-all duration-300">
       <div className="mb-4 flex justify-center">{icon}</div>
       <h2 className="text-xl font-bold text-center mb-2">{title}</h2>
       <p className="text-gray-600 text-center">{desc}</p>

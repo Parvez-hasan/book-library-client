@@ -60,7 +60,7 @@ const Testimonial = () => {
 
   return (
     <div className="py-4 p-4 container mx-auto">
-      <h2 className="text-2xl text-center font-semibold mb-4">
+      <h2 className="text-2xl text-center text-blue-600 font-semibold mb-4">
         What people say
       </h2>
 

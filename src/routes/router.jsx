@@ -31,8 +31,6 @@ import AdminRoter from "../routes/RoleRouter/AdminRoter";
 import UserManagement from "../Pages/Dashboard/Admin/UserManagement/UserManagement";
 import Order from "../Pages/Dashboard/Order/Order"
 import BookManege from "../Pages/Dashboard/Admin/BookManege/BookManege";
-//import BookManege from "../Pages/Dashboard/Admin/BookManege"
-
 
 
 
@@ -153,9 +151,9 @@ export const router = createBrowserRouter([
     {
       path: 'wish-list',
       element: (
-       // <UserRouter>
+        <UserRouter>
            <WisList></WisList>
-       // </UserRouter>
+        </UserRouter>
       ),
       hydrateFallbackElement: <Loading></Loading>  
     },
@@ -172,8 +170,9 @@ export const router = createBrowserRouter([
     {
       path : 'my-books',
       element : (
-       
-         <MyBook></MyBook>
+       <LibrarianRouter>
+          <MyBook></MyBook>
+       </LibrarianRouter>
       
       ),
     },

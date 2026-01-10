@@ -5,7 +5,7 @@ import { Navigate } from 'react-router';
 
 const LibrarianRouter = ({children}) => {
 
-    const [role, isRoleLoading] = useUserRole();
+    const {role, isRoleLoading} = useUserRole();
 
   if (isRoleLoading) return <Loading />;
 

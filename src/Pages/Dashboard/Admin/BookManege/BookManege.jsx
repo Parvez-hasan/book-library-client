@@ -6,6 +6,7 @@ import Loading from '../../../../components/Loading';
 import ManageBookTable from '../../../../components/Dashboard/AllTableRow/ManageBookTable';
 
 const BookManege = () => {
+  
      const axiosSecure = useAxiosSecure();
   const {
     data: books = [],

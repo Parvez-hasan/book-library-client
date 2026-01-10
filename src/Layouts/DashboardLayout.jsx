@@ -75,14 +75,16 @@ const DashboardLayout = () => {
               <FiMenu className="text-2xl text-blue-600" />
             </label>
 
-            <h2 className="text-2xl font-bold text-blue-600">
+            <h2 className=" text-sm md:text-2xl font-bold text-blue-600">
               <Link
-              to="/">BookCourier</Link>
+              to="/">BookCourier Dashboard</Link>
             </h2>
           </nav>
 
           <div className="p-6">
+
             <Outlet />
+            
           </div>
         </div>
 
@@ -130,6 +132,7 @@ const DashboardLayout = () => {
                 </Link>
               </li>
 
+
               {/* ===== Customer ===== */}
               {role === "customer" && (
                 <>
@@ -170,6 +173,7 @@ const DashboardLayout = () => {
                   </li>
                 </>
               )}
+
 
               {/* ===== Librarian ===== */}
               {role === "Librarian" && (
