@@ -171,7 +171,7 @@ const Navbar = () => {
           </Link>
         ) : (
           <>
-            <Link to="/register">
+            {/* <Link to="/register">
               <button
                 className="overflow-hidden hidden sm:block mr-2 px-4 py-2 bg-black text-white  
             rounded-md font-semibold cursor-pointer relative z-10 group"
@@ -199,7 +199,7 @@ const Navbar = () => {
                   Register
                 </span>
               </button>
-            </Link>
+            </Link> */}
 
             {/* Login Button */}
             <Link

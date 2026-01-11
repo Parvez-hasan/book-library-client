@@ -2,16 +2,15 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../Contexts/AuthContext";
 import { Link, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { TbFidgetSpinner } from 'react-icons/tb'
+import { TbFidgetSpinner } from "react-icons/tb";
 import Loading from "../../../components/Loading";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 
 const Register = () => {
-  
-  const {loading, createUser, updateUser, googleLogin } = useAuth();
-  const axiosSecure = useAxiosSecure()
+  const { loading, createUser, updateUser, googleLogin } = useAuth();
+  const axiosSecure = useAxiosSecure();
 
   const [nameError, setNameError] = useState("");
   const [error, setError] = useState("");
@@ -19,9 +18,9 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-   // if (loading) return  <Loading></Loading>
+  // if (loading) return  <Loading></Loading>
 
-    //register 
+  //register
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -50,45 +49,39 @@ const Register = () => {
     }
 
     createUser(email, password)
-  .then((result) => {
-    console.log(result.user);
-    
+      .then((result) => {
+        console.log(result.user);
 
-    toast.success("✅ Account Created Successfully!");
+        toast.success("✅ Account Created Successfully!");
 
-    updateUser({ displayName: name, photoURL: photo })
-      .then(() => {
-      
-        const userInfo = {
-          name: name,
-          email: email,
-          photo: photo,
-          role: "customer",
-          createdAt: new Date(),
-        };
+        updateUser({ displayName: name, photoURL: photo }).then(() => {
+          const userInfo = {
+            name: name,
+            email: email,
+            photo: photo,
+            role: "customer",
+            createdAt: new Date(),
+          };
 
-        axiosSecure.post("/users", userInfo).then((res) => {
-          console.log("user data saved", res.data);
-          navigate("/");
+          axiosSecure.post("/users", userInfo).then((res) => {
+            console.log("user data saved", res.data);
+            navigate("/");
+          });
         });
-
+      })
+      .catch((error) => {
+        setError(error.message);
+        toast.error(error.message);
       });
-  })
-  .catch((error) => {
-    setError(error.message);
-    toast.error(error.message);
-  });
-
   };
 
   // google login
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
-       
-        toast.success( "🎉 Logged in with Google Successfully!")
+        toast.success("🎉 Logged in with Google Successfully!");
 
-         // user data save in database
+        // user data save in database
 
         const loggedUser = result.user;
 
@@ -105,7 +98,6 @@ const Register = () => {
           //  navigate(location.state || "/");
           navigate("/");
         });
-       
       })
       .catch((err) => setError(err.message));
   };
@@ -118,8 +110,10 @@ const Register = () => {
   };
 
   return (
-    <div className="card bg-base-100 mx-auto max-w-sm shrink-0 shadow-2xl">
-       <h2 className="text-2xl font-bold text-center">Welcome To Book Library</h2>
+    <div className="card bg-base-100 mx-auto max-w-sm shrink-0 dark:bg-gray-800 shadow-2xl">
+      <h2 className="text-2xl font-bold text-center">
+        Welcome To Book Library
+      </h2>
       <div className="card-body">
         <h1 className="text-1xl md:text-2xl lg:text-3xl font-bold text-center">
           Register now!
@@ -166,23 +160,23 @@ const Register = () => {
               />
               <button
                 onClick={hendleShowPassword}
-                className="btn btn-xs mt-2 right-7 absolute"
+                className="btn btn-xs mt-2 right-4 absolute"
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
             {error && <p className="text-red-500">{error}</p>}
-            <button className="btn btn-neutral bg-blue-600 hover:bg-blue-700 mt-4">
-                {loading ? (
-                <TbFidgetSpinner className='animate-spin m-auto' />
+           
+            <button className="btn btn-neutral  bg-blue-600 hover:bg-blue-700 mt-4">
+              {loading ? (
+                <TbFidgetSpinner className="animate-spin m-auto" />
               ) : (
-                'Register'
+                "Register"
               )}
-              
             </button>
           </fieldset>
         </form>
-        
+
         {/* Google */}
         <h3 className="text-center">------- OR -------</h3>
         <button

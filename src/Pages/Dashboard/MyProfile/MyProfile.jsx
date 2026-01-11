@@ -94,7 +94,7 @@ const MyProfile = () => {
   return (
 
     <>
-      <div className="max-w-lg mx-auto mt-18 p-6 bg-blue-50 shadow-lg rounded-lg border border-blue-400">
+      <div className="max-w-lg mx-auto mt-18 p-6 bg-blue-50 shadow-lg dark:text-black rounded-lg border border-blue-400">
         <div className="flex flex-col items-center text-center">
           <img
             src={image}
@@ -122,7 +122,7 @@ const MyProfile = () => {
           </div>
           <button
             onClick={() => setIsProfile(true)}
-            className={`py-2 px-4 w-full mt-3 bg-blue-500 text-white font-semibold rounded-md cursor-pointer ${
+            className={`py-2 px-4 w-full mt-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md cursor-pointer ${
               isProfile ? "hidden" : "block"
             }`}
           >
@@ -171,7 +171,7 @@ const MyProfile = () => {
               </div>
             </div>
 
-            <button className="py-2 px-4 w-full mt-3 bg-blue-500 text-white font-semibold rounded-md">
+            <button className="py-2 px-4 w-full mt-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md">
               Update Profile
             </button>
           </form>

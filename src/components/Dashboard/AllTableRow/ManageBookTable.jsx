@@ -11,7 +11,7 @@ const ManageBookTable = ({ book, refetch }) => {
 
   return (
 
-    <tr className="border-b border-gray-200">
+    <tr className="border-b  border-gray-200">
       <td className="table-data text-nowrap  flex items-center justify-center py-1">
         <img src={image} className="w-16 h-12 object-cover" />
       </td>

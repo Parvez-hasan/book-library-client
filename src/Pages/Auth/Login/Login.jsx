@@ -83,9 +83,9 @@ const Login = () => {
 
     setShowPassword(!showPassword);
   };
-  // grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-2 p-4
+
   return (
-    <div className="card bg-base-100 mx-auto max-w-sm  shrink-0 shadow-2xl">
+    <div className="card bg-base-100 mx-auto max-w-sm dark:bg-gray-800 shrink-0 shadow-2xl">
       <h2 className="text-2xl font-bold text-center">Welcome Bark</h2>
       <div className="card-body ">
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center">
@@ -110,7 +110,7 @@ const Login = () => {
                 name="password"
                 className="input"
                 required
-                placeholder="Password"
+                placeholder="*******"
               />
               <button
                 onClick={hendleShowPassword}

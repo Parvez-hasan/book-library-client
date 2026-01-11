@@ -50,17 +50,21 @@ const BookModal = ({ isOpen, closeModal, bookId, refetch }) => {
       onClose={closeModal}
     >
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div className="flex min-h-full items-center justify-center p-4">
-          <DialogPanel className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl">
-            <DialogTitle className="text-lg font-semibold text-black">
+        <div className="flex min-h-full  items-center justify-center p-4">
+          <DialogPanel className=" w-full max-w-md rounded-xl p-6 shadow-xl
+    bg-black text-gray-800
+    dark:bg-gray-900 dark:text-gray-100">
+            <DialogTitle className="text-lg font-semibold ">
               Update Book Status
             </DialogTitle>
 
-            <div className="mt-4">
+            <div className="mt-4 dark:text-gray-800">
               <select
                 value={updatedStatus}
                 onChange={(e) => setUpdatedStatus(e.target.value)}
-                className="w-full my-3 border border-gray-300 rounded-xl px-3 py-3"
+                className="  w-full my-3 border rounded-xl px-3 py-3
+    bg-white text-gray-800 border-gray-300
+    dark:bg-gray-800 dark:text-gray-100 dark:border-gray-600"
               >
                 <option value="">Select Status</option>
                 <option value="published">Published</option>

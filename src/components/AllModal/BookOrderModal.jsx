@@ -74,7 +74,7 @@ const BookOrderModal = ({ isOpen, closeModal, book }) => {
   return (
     <Dialog open={isOpen} onClose={closeModal} className="relative z-50">
         
-      <div className="fixed inset-0 flex items-center justify-center p-6 bg-black/30">
+      <div className="fixed inset-0 dark:text-gray-800 flex items-center justify-center p-6 bg-black/30">
         <DialogPanel className="bg-white p-6 rounded-xl shadow-xl w-full max-w-lg">
           <DialogTitle className="text-lg font-semibold">
             Book Status Update
