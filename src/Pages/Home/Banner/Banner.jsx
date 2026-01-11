@@ -1,10 +1,8 @@
-
-import {motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 const Banner = () => {
-
   const slides = [
     {
       id: 1,
@@ -16,13 +14,15 @@ const Banner = () => {
     {
       id: 2,
       title: "Create up to 100 mixed media collections?",
-      description: "Our library management service caters to libraries, schools, organizations, and home catalogs",
+      description:
+        "Our library management service caters to libraries, schools, organizations, and home catalogs",
       img: "https://i.ibb.co.com/Nn2QXF92/pexels-pixabay-256455.jpg",
     },
     {
       id: 3,
       title: "Libib Pro Users Can Access Even More Power",
-      description: "Libib Pro brings an abundance of additional enhancements to the table.",
+      description:
+        "Libib Pro brings an abundance of additional enhancements to the table.",
       img: "https://i.ibb.co.com/WvR8RNJk/teenagers-with-gadgets-library.jpg",
     },
   ];
@@ -38,7 +38,7 @@ const Banner = () => {
   }, [slides.length]);
 
   return (
-     <div className="relative overflow-hidden h-[90vh]">
+    <div className="relative overflow-hidden h-[70vh]">
       <AnimatePresence>
         <motion.div
           key={slides[current].id}
@@ -59,11 +59,20 @@ const Banner = () => {
               {slides[current].title}
             </h2>
             <p className="text-lg mb-6">{slides[current].description}</p>
-            <Link
-              to="/all-books"
-              className="bg-blue-600 px-6 py-3 font-semibold rounded-xl text-white hover:bg-blue-700 transition"
-            >
-              Show All Books
+        
+            <Link to="/all-books">
+              <div className="flex justify-center py-3">
+                <button className="cursor-pointer bg-gradient-to-b from-blue-600 to-blue-500 shadow-[0px_4px_32px_0_rgba(99,102,241,.70)] px-6 py-3 rounded-xl border-[1px] border-slate-500 text-white font-medium group">
+                  <div className="relative overflow-hidden">
+                    <p className="group-hover:-translate-y-7 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
+                      See All Books
+                    </p>
+                    <p className="absolute top-7 left-0 group-hover:top-0 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
+                      See All Books
+                    </p>
+                  </div>
+                </button>
+              </div>
             </Link>
           </div>
         </motion.div>
