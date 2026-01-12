@@ -1,28 +1,30 @@
+
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { FaAngleDown } from "react-icons/fa";
 
 const Banner = () => {
   const slides = [
     {
       id: 1,
-      title: "Automatic Data for Book, Game & Video",
+      title: "Library Books Delivered to Your Doorstep",
       description:
-        "Our library management service caters to libraries, schools, and home catalogs",
+        "BookCourier connects libraries with readers for fast, safe, and reliable home delivery.",
       img: "https://i.ibb.co.com/b5S8TDNM/vladimir-mokry-G-4w-X5t-ZNu-E-unsplash.jpg",
     },
     {
       id: 2,
-      title: "Create up to 100 mixed media collections?",
+      title: "Borrow, Read & Return Without Visiting Libraries",
       description:
-        "Our library management service caters to libraries, schools, organizations, and home catalogs",
+        "Perfect for students, researchers, and book lovers across the city.",
       img: "https://i.ibb.co.com/Nn2QXF92/pexels-pixabay-256455.jpg",
     },
     {
       id: 3,
-      title: "Libib Pro Users Can Access Even More Power",
+      title: "Smart Library-to-Home Delivery System",
       description:
-        "Libib Pro brings an abundance of additional enhancements to the table.",
+        "Track orders, manage books, and enjoy seamless reading experiences.",
       img: "https://i.ibb.co.com/WvR8RNJk/teenagers-with-gadgets-library.jpg",
     },
   ];
@@ -31,66 +33,93 @@ const Banner = () => {
 
   // Auto slide
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 4000);
-    return () => clearInterval(interval);
+    const timer = setInterval(() => {
+      setCurrent((prev) =>
+        prev === slides.length - 1 ? 0 : prev + 1
+      );
+    }, 4500);
+
+    return () => clearInterval(timer);
   }, [slides.length]);
 
   return (
-    <div className="relative overflow-hidden h-[70vh]">
-      <AnimatePresence>
+    <section className="relative h-[70vh] overflow-hidden">
+      <AnimatePresence mode="wait">
         <motion.div
           key={slides[current].id}
-          className="absolute inset-0 flex flex-col justify-center items-center text-center text-white"
-          initial={{ opacity: 0, scale: 1.05 }}
+          className="absolute inset-0 flex items-center justify-center text-center text-white"
+          initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.9, ease: "easeInOut" }}
           style={{
             backgroundImage: `url(${slides[current].img})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          <div className="bg-black/50 absolute inset-0"></div>
-          <div className="relative z-10 max-w-2xl px-4">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
+
+          {/* Content */}
+          <div className="relative z-10 max-w-3xl px-4">
+            <motion.h1
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-4xl md:text-6xl font-bold mb-5 leading-tight"
+            >
               {slides[current].title}
-            </h2>
-            <p className="text-lg mb-6">{slides[current].description}</p>
-        
+            </motion.h1>
+
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.35 }}
+              className="text-lg md:text-xl mb-8 text-gray-200"
+            >
+              {slides[current].description}
+            </motion.p>
+
             <Link to="/all-books">
-              <div className="flex justify-center py-3">
-                <button className="cursor-pointer bg-gradient-to-b from-blue-600 to-blue-500 shadow-[0px_4px_32px_0_rgba(99,102,241,.70)] px-6 py-3 rounded-xl border-[1px] border-slate-500 text-white font-medium group">
-                  <div className="relative overflow-hidden">
-                    <p className="group-hover:-translate-y-7 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
-                      See All Books
-                    </p>
-                    <p className="absolute top-7 left-0 group-hover:top-0 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
-                      See All Books
-                    </p>
-                  </div>
-                </button>
-              </div>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg font-semibold"
+              >
+                Explore All Books
+              </motion.button>
             </Link>
           </div>
         </motion.div>
       </AnimatePresence>
 
-      {/* Optional Dots indicator */}
-      <div className="absolute bottom-6 flex gap-3 justify-center w-full z-10">
-        {slides.map((_, i) => (
+      {/* Dots */}
+      <div className="absolute  bottom-4 w-full flex justify-center gap-3 z-20">
+        {slides.map((_, index) => (
           <button
-            key={i}
-            onClick={() => setCurrent(i)}
+            key={index}
+            onClick={() => setCurrent(index)}
             className={`h-3 w-3 rounded-full transition-all ${
-              i === current ? "bg-blue-500 scale-110" : "bg-gray-300"
+              index === current
+                ? "bg-blue-500 scale-125"
+                : "bg-gray-300"
             }`}
-          ></button>
+          />
         ))}
       </div>
-    </div>
+
+      {/* Scroll Indicator (Visual Flow) */}
+      {/* <div className="absolute bottom-6 w-full flex justify-center z-20">
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+          className="text-white text-2xl opacity-80"
+        >
+          <FaAngleDown />
+        </motion.div>
+      </div> */}
+    </section>
   );
 };
 
