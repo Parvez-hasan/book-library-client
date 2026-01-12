@@ -2,7 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { FaAngleDown } from "react-icons/fa";
+
 
 const Banner = () => {
   const slides = [

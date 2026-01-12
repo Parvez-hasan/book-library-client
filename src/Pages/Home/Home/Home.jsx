@@ -5,6 +5,8 @@ import Coverage from '../../Coverage/Coverage';
 import WhyChoose from '../WhyChoose/WhyChoose';
 import Features from '../Features/Features';
 import Testimonial from '../Testimonial/Testimonial';
+import Stats from '../Stats/Stats';
+import CallToAction from '../CallToAction/CallToAction';
 
 const Home = () => {
     return (
@@ -19,9 +21,14 @@ const Home = () => {
 
            <Testimonial></Testimonial>
 
+           <Stats></Stats>
+          
+
            <div className='h-700px w-full'>
             <Coverage></Coverage>
            </div>
+
+            <CallToAction></CallToAction>
 
         </div>
     );
