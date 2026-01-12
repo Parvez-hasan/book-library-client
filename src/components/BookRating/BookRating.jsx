@@ -60,7 +60,6 @@ const BookRating = ({ book }) => {
     }
   };
 
-
     return (
        <div className="mt-10 max-w-3xl mx-auto p-6 bg-white rounded-xl dark:text-gray-800 shadow-lg">
       <h2 className="text-3xl font-bold mb-6 text-center">Reviews & Ratings</h2>
