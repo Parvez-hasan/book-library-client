@@ -65,7 +65,7 @@ const Footer = () => {
             </div>
             <div>
               <a className="link dark:text-gray-100 text-gray-700 link-hover">
-                17 Arlington St, Kishoreganj, Bangladesh.
+              2320 Hossinpur, Kishoreganj, Bangladesh.
               </a>
             </div>
           </div>

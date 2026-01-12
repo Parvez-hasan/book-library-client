@@ -7,6 +7,8 @@ import Features from '../Features/Features';
 import Testimonial from '../Testimonial/Testimonial';
 import Stats from '../Stats/Stats';
 import CallToAction from '../CallToAction/CallToAction';
+import FAQ from '../FAQ/FAQ';
+import Newlater from '../Newlater/Newlater';
 
 const Home = () => {
     return (
@@ -29,6 +31,10 @@ const Home = () => {
            </div>
 
             <CallToAction></CallToAction>
+
+            <FAQ></FAQ>
+
+            <Newlater></Newlater>
 
         </div>
     );

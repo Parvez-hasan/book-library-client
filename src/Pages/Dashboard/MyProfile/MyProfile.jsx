@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-import useAuth from '../../../Hooks/useAuth';
-import useAxiosSecure from '../../../Hooks/useAxiosSecure';
-import { useQuery } from '@tanstack/react-query';
-import { useForm } from 'react-hook-form';
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import useAuth from "../../../Hooks/useAuth";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 import { FaUser } from "react-icons/fa";
 import { IoIosPhotos } from "react-icons/io";
-import { imageUpload } from '../../../utiles';
+import { imageUpload } from "../../../utiles";
 import { updateProfile } from "firebase/auth";
-import Loading from '../../../components/Loading';
+import Loading from "../../../components/Loading";
 
 const MyProfile = () => {
-
-    const { user } = useAuth();
+  const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
   const [isProfile, setIsProfile] = useState(false);
@@ -92,7 +91,6 @@ const MyProfile = () => {
   const { name, email, image, create_date, last_loggedIn, role } = userInfo;
 
   return (
-
     <>
       <div className="max-w-lg mx-auto mt-18 p-6 bg-blue-50 shadow-lg dark:text-black rounded-lg border border-blue-400">
         <div className="flex flex-col items-center text-center">
@@ -120,13 +118,29 @@ const MyProfile = () => {
               {new Date(last_loggedIn).toLocaleString()}
             </p>
           </div>
-          <button
+          {/* <button
             onClick={() => setIsProfile(true)}
             className={`py-2 px-4 w-full mt-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md cursor-pointer ${
               isProfile ? "hidden" : "block"
             }`}
           >
             Update Profile
+          </button> */}
+
+          <button
+            onClick={() => setIsProfile(true)}
+            className={`py-2 px-4 cursor-pointer bg-gradient-to-b from-pink-500 to-pink-600 shadow-[0px_4px_32px_0_rgba(99,102,241,.70)] mt-2 rounded-xl border-[1px] border-slate-500 text-white font-medium group ${
+              isProfile ? "hidden" : "block"
+            }`}
+          >
+            <div className="relative overflow-hidden">
+              <p className="group-hover:-translate-y-7 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
+                Update Profile
+              </p>
+              <p className="absolute top-7 left-0 group-hover:top-0 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
+                Update Profile
+              </p>
+            </div>
           </button>
         </div>
       </div>
@@ -171,8 +185,16 @@ const MyProfile = () => {
               </div>
             </div>
 
-            <button className="py-2 px-4 w-full mt-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md">
-              Update Profile
+          
+            <button className="w-full mt-3 bg-gradient-to-b from-pink-500 to-pink-600 shadow-[0px_4px_32px_0_rgba(99,102,241,.70)] px-6 py-2 rounded-xl border border-slate-500 text-white font-medium group">
+              <div className="relative h-7 overflow-hidden flex items-center justify-center">
+                <p className="absolute inset-0 flex items-center justify-center transform group-hover:-translate-y-7 transition-all duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
+                  Update Profile
+                </p>
+                <p className="absolute inset-0 flex items-center justify-center transform translate-y-7 group-hover:translate-y-0 transition-all duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
+                  Update Profile
+                </p>
+              </div>
             </button>
           </form>
         </div>

@@ -34,8 +34,12 @@ const Coverage = () => {
     <div className="px-4 py-6 sm:px-6 lg:px-8">
       {/* title */}
       <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-center">
-        The Books Are Available For All Homes in 64 Districts
+         Nationwide Book Delivery Coverage
       </h2>
+          <p className="text-gray-600 text-center py-3 dark:text-gray-400 max-w-2xl mx-auto">
+            BookCourier currently delivers books to all 64 districts across
+            Bangladesh with trusted library partners.
+          </p>
 
       {/* search */}
       <div className="py-4 flex justify-center">
@@ -103,3 +107,4 @@ const Coverage = () => {
 };
 
 export default Coverage;
+

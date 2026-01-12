@@ -8,7 +8,36 @@ import toast from "react-hot-toast";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const Login = () => {
+  // demo login
+
+  const DEMO_EMAIL = "demo@gmail.com";
+  const DEMO_PASSWORD = "Demo12##";
+
+
+  const handleDemoLogin = async () => {
+  try {
+    const result = await signIn(DEMO_EMAIL, DEMO_PASSWORD);
+
+    const demoUser = result.user;
+
+    // 🔥 MongoDB তে user আছে কিনা নিশ্চিত করা
+    await axiosSecure.post("/users", {
+      name: demoUser.displayName || "Demo User",
+      email: demoUser.email,
+      photo: demoUser.photoURL || "",
+      role: "customer", // 👈 demo role
+      createdAt: new Date(),
+    });
+
+    toast.success("🚀 Demo Login Successful");
+    navigate("/");
+  } catch (error) {
+    toast.error(error.message);
+  }
+};
+
   
+
   const { signIn, googleLogin, loading } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
   const [error, setError] = useState("");
@@ -139,6 +168,14 @@ const Login = () => {
               ) : (
                 "Login"
               )}
+            </button>
+
+            <button
+              type="button"
+              onClick={handleDemoLogin}
+              className="btn w-full bg-pink-400 hover:bg-pink-500 text-black mt-2"
+            >
+              🚀 Demo Login
             </button>
           </fieldset>
         </form>

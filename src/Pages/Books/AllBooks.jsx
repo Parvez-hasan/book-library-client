@@ -32,12 +32,6 @@ const AllBooks = () => {
   const totalPages = Math.ceil(books.length / booksPerPage);
 
 
-  // useEffect(() => {
-  //   axiosSecure.get("/books").then((res) => {
-  //     setBooks(res.data);
-  //   });
-  // }, [axiosSecure]);
-
   if(isLoading) return <Loading></Loading>
 
   return (

@@ -18,7 +18,6 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  // if (loading) return  <Loading></Loading>
 
   //register
   const handleRegister = (e) => {
@@ -224,3 +223,5 @@ const Register = () => {
 };
 
 export default Register;
+
+
